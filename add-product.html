@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>إضافة منتج جديد | الخطيب لوجستيك</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0a213f",
+                        "secondary": "#f59d1e",
+                        "tertiary": "#545454",
+                        "background": "#f8f9fb",
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'IBM Plex Sans Arabic', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-primary">
+    <!-- Header -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="img/logo.jpg" alt="الخطيب لوجستيك" class="h-10 w-auto rounded">
+                    <span class="text-2xl font-black text-primary tracking-tighter">الخطيب لوجستيك</span>
+                </a>
+                <div class="hidden md:flex items-center gap-6 font-semibold text-sm">
+                    <a class="text-tertiary hover:text-primary transition-colors" href="index.html">الرئيسية</a>
+                    <a class="text-tertiary hover:text-primary transition-colors" href="product-details.html">المنتجات</a>
+                    <a class="text-primary border-b-2 border-secondary pb-1" href="admin.html">لوحة التحكم</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-primary">إضافة منتج جديد</h1>
+                <p class="text-secondary font-semibold">دقة • سرعة • أمان</p>
+            </div>
+            <div class="flex gap-4">
+                <a href="admin.html" class="px-8 py-2.5 rounded-full border border-gray-200 text-primary hover:bg-gray-50 font-bold">إلغاء</a>
+                <button class="px-8 py-2.5 rounded-full bg-secondary text-white font-bold shadow-md hover:brightness-110 transition-all">حفظ المنتج</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Form -->
+            <div class="lg:col-span-8 space-y-8">
+                <section class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined">info</span>
+                        المعلومات الأساسية
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold">اسم المنتج (بالعربية)</label>
+                            <input class="w-full bg-gray-50 border-none rounded-lg p-3 focus:ring-2 focus:ring-secondary" placeholder="مثلاً: حفار كوماتسو PC200" type="text"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold">الفئة</label>
+                            <select class="w-full bg-gray-50 border-none rounded-lg p-3 focus:ring-2 focus:ring-secondary">
+                                <option>حفارات</option>
+                                <option>رافعات شوكية</option>
+                                <option>شاحنات ثقيلة</option>
+                                <option>قطع غيار</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="block text-sm font-semibold">وصف المنتج</label>
+                            <textarea class="w-full bg-gray-50 border-none rounded-lg p-3 focus:ring-2 focus:ring-secondary h-32" placeholder="أدخل تفاصيل ومواصفات المنتج..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined">payments</span>
+                        التسعير والمخزون
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold">السعر المتوقع ($)</label>
+                            <input class="w-full bg-gray-50 border-none rounded-lg p-3 focus:ring-2 focus:ring-secondary" type="number" placeholder="0.00"/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-semibold">الحالة</label>
+                            <select class="w-full bg-gray-50 border-none rounded-lg p-3 focus:ring-2 focus:ring-secondary">
+                                <option>جديد</option>
+                                <option>مستعمل - بحالة ممتازة</option>
+                                <option>مستعمل - بحالة جيدة</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="lg:col-span-4 space-y-8">
+                <section class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <h2 class="text-lg font-bold mb-4">صورة المنتج</h2>
+                    <div class="border-2 border-dashed border-gray-200 rounded-xl p-8 flex flex-col items-center justify-center bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-gray-400 mb-2">upload_file</span>
+                        <p class="text-sm font-bold">رفع صورة</p>
+                        <p class="text-[10px] text-gray-400 mt-1">PNG, JPG بحد أقصى 5MB</p>
+                    </div>
+                    <div class="mt-4 grid grid-cols-2 gap-2">
+                        <img src="img/10.png" alt="Product Preview" class="w-full h-24 object-cover rounded-lg border border-gray-100">
+                        <div class="w-full h-24 bg-gray-50 rounded-lg flex items-center justify-center border border-gray-100">
+                             <span class="material-symbols-outlined text-gray-300">image</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-primary text-white p-6 rounded-xl shadow-lg">
+                    <h3 class="font-bold mb-4">نصيحة للإضافة</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        تأكد من إدراج كافة التفاصيل التقنية (سنة الصنع، ساعات العمل، المنشأ) لزيادة فرص البيع والطلب.
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-primary text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-xs">
+            © 2024 الخطيب لوجستيك. جميع الحقوق محفوظة
+        </div>
+    </footer>
+</body>
+</html>
