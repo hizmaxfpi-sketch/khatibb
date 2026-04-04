@@ -111,28 +111,42 @@
 
 <body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
 
-    <!-- Top Navigation Bar -->
-    <nav class="bg-surface/60 backdrop-blur-md dark:bg-slate-900/60 shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
-        <div class="flex justify-between items-center w-full px-6 py-4 max-w-8xl mx-auto rtl">
-            <div class="flex items-center gap-8">
-                <span class="text-2xl font-black text-blue-950 dark:text-white tracking-tighter">الخطيب لوجستيك</span>
-                <div class="hidden md:flex items-center gap-6 text-sm font-semibold tracking-tight">
-                    <a class="text-blue-900 dark:text-blue-400 border-b-2 border-amber-600 pb-1" href="#">الرئيسية</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 transition-colors" href="#">الشحن</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 transition-colors" href="#">المنتجات</a>
-                    <a class="text-slate-600 dark:text-slate-400 hover:text-blue-800 transition-colors" href="#">لوحة التحكم</a>
+    <!-- Unified Desktop Header (Visible > 768px) -->
+    <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center rtl">
+            <div class="flex items-center gap-10">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                </a>
+                <div class="flex items-center gap-6 text-sm font-bold">
+                    <a href="index.html" class="text-secondary border-b-2 border-secondary pb-1">الرئيسية</a>
+                    <a href="all-products.html" class="text-on-surface hover:text-secondary transition-colors">المنتجات</a>
+                    <a href="shipment-trucker.html" class="text-on-surface hover:text-secondary transition-colors">تتبع الشحنة</a>
+                    <a href="offers.html" class="text-on-surface hover:text-secondary transition-colors">العروض</a>
+                    <a href="contact.html" class="text-on-surface hover:text-secondary transition-colors">تواصل معنا</a>
+                    <a href="admin.html" class="text-on-surface hover:text-secondary transition-colors">لوحة التحكم</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="relative hidden sm:block">
-                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline">search</span>
-                    <input class="pr-10 pl-4 py-2 bg-surface-container-high rounded-full border-none text-sm focus:ring-2 focus:ring-primary w-64" placeholder="تتبع شحنتك..." type="text"/>
+                <div class="relative">
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
+                    <input type="text" placeholder="بحث..." class="pr-10 pl-4 py-2 bg-surface-container-high rounded-full border-none text-sm focus:ring-2 focus:ring-primary w-48 transition-all focus:w-64">
                 </div>
-                <button class="material-symbols-outlined text-slate-600 scale-95 active:scale-90 transition-transform">notifications</button>
-                <button class="material-symbols-outlined text-slate-600 scale-95 active:scale-90 transition-transform">account_circle</button>
+                <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors">shopping_cart</a>
+                <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">account_circle</button>
             </div>
         </div>
     </nav>
+
+    <!-- Unified Mobile Header (Visible < 768px) -->
+    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-14 flex justify-between items-center border-b border-outline-variant/20 rtl">
+        <a href="index.html" class="text-lg font-black text-primary tracking-tighter">الخطيب لوجستيك</a>
+        <div class="flex items-center gap-3">
+            <button class="material-symbols-outlined text-outline text-2xl">search</button>
+            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
+            <button class="material-symbols-outlined text-outline text-2xl">notifications</button>
+        </div>
+    </header>
 
     <main>
         <!-- Hero Slider Section -->
@@ -234,34 +248,34 @@
 
         <!-- Quick Services Bar -->
         <section class="relative -mt-16 z-20 max-w-6xl mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
-                    <div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                        <span class="material-symbols-outlined text-primary text-4xl">public</span>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary/5 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-2xl md:text-4xl">public</span>
                     </div>
-                    <h3 class="font-bold text-primary mb-1">توفير عالمي</h3>
-                    <p class="text-xs text-outline leading-relaxed">تأمين البضائع من أرقى المصانع العالمية مباشرة.</p>
+                    <h3 class="font-bold text-primary text-sm md:text-base mb-1">توفير عالمي</h3>
+                    <p class="text-[11px] md:text-xs text-outline leading-relaxed">تأمين البضائع من أرقى المصانع العالمية مباشرة.</p>
                 </div>
-                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
-                    <div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                        <span class="material-symbols-outlined text-primary text-4xl">local_shipping</span>
+                <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary/5 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-2xl md:text-4xl">local_shipping</span>
                     </div>
-                    <h3 class="font-bold text-primary mb-1">شحن بري وبحري</h3>
-                    <p class="text-xs text-outline leading-relaxed">حلول نقل متكاملة تغطي كافة المسارات الدولية.</p>
+                    <h3 class="font-bold text-primary text-sm md:text-base mb-1">شحن بري وبحري</h3>
+                    <p class="text-[11px] md:text-xs text-outline leading-relaxed">حلول نقل متكاملة تغطي كافة المسارات الدولية.</p>
                 </div>
-                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
-                    <div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                        <span class="material-symbols-outlined text-primary text-4xl">fact_check</span>
+                <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary/5 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-2xl md:text-4xl">fact_check</span>
                     </div>
-                    <h3 class="font-bold text-primary mb-1">تخليص جمركي</h3>
-                    <p class="text-xs text-outline leading-relaxed">سرعة فائقة في إنهاء كافة الإجراءات القانونية.</p>
+                    <h3 class="font-bold text-primary text-sm md:text-base mb-1">تخليص جمركي</h3>
+                    <p class="text-[11px] md:text-xs text-outline leading-relaxed">سرعة فائقة في إنهاء كافة الإجراءات القانونية.</p>
                 </div>
-                <div class="bg-surface-container-lowest p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
-                    <div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                        <span class="material-symbols-outlined text-primary text-4xl">payments</span>
+                <div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-xl hover:translate-y-[-4px] transition-transform group">
+                    <div class="w-12 h-12 md:w-16 md:h-16 bg-primary/5 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:bg-primary/10 transition-colors">
+                        <span class="material-symbols-outlined text-primary text-2xl md:text-4xl">payments</span>
                     </div>
-                    <h3 class="font-bold text-primary mb-1">خدمات الدفع</h3>
-                    <p class="text-xs text-outline leading-relaxed">تسهيلات مالية آمنة للتبادل التجاري الدولي.</p>
+                    <h3 class="font-bold text-primary text-sm md:text-base mb-1">خدمات الدفع</h3>
+                    <p class="text-[11px] md:text-xs text-outline leading-relaxed">تسهيلات مالية آمنة للتبادل التجاري الدولي.</p>
                 </div>
             </div>
         </section>
@@ -499,25 +513,35 @@
         </div>
     </footer>
 
-    <!-- Bottom Navigation Bar (Mobile Only) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 rtl bg-surface/60 backdrop-blur-lg dark:bg-slate-900/60 shadow-[0_-12px_32px_-4px_rgba(0,7,103,0.08)] border-t border-slate-200/20">
-        <a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-200 rounded-2xl px-5 py-2 translate-y-[-2px] transition-all duration-300 ease-out" href="#">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
-            <span class="text-[10px] font-bold mt-1">الرئيسية</span>
+    <!-- Unified Bottom Navigation (Visible < 768px) -->
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center pt-2 pb-5 rtl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <a href="index.html" class="flex flex-col items-center gap-1 group active">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">home</span>
+            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 active:bg-slate-200 transition-all duration-300" href="#">
-            <span class="material-symbols-outlined">inventory_2</span>
-            <span class="text-[10px] font-bold mt-1">المنتجات</span>
+        <a href="all-products.html" class="flex flex-col items-center gap-1 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">inventory_2</span>
+            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 active:bg-slate-200 transition-all duration-300" href="#">
-            <span class="material-symbols-outlined">local_shipping</span>
-            <span class="text-[10px] font-bold mt-1">الشحن</span>
+        <a href="shipment-trucker.html" class="flex flex-col items-center gap-1 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">local_shipping</span>
+            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">الشحن</span>
         </a>
-        <a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-2 active:bg-slate-200 transition-all duration-300" href="#">
-            <span class="material-symbols-outlined">chat</span>
-            <span class="text-[10px] font-bold mt-1">تواصل</span>
+        <a href="request.html" class="flex flex-col items-center gap-1 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">add_box</span>
+            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        </a>
+        <a href="admin.html" class="flex flex-col items-center gap-1 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">dashboard</span>
+            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
         </a>
     </nav>
+
+    <style>
+        .font-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
 
     <!-- Floating Action Button -->
     <button class="fixed bottom-24 left-6 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-2xl flex items-center justify-center z-40 md:bottom-8 md:left-8 active:scale-90 transition-transform">
