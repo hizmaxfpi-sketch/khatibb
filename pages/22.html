@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#454652",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#071e27",
+                    "primary-fixed": "#e0e0ff",
+                    "surface-container-high": "#e6e8ea",
+                    "on-background": "#191c1e",
+                    "outline-variant": "#c6c5d4",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#855300",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-surface": "#2d3133",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "on-error-container": "#93000a",
+                    "surface-container-low": "#f2f4f6",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#d8dadc",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container": "#eceef0",
+                    "surface-tint": "#4c56af",
+                    "on-primary-container": "#8690ee",
+                    "tertiary-fixed-dim": "#b4cad6",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-secondary-container": "#684000",
+                    "surface": "#f8f9fb",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#f8f9fb",
+                    "surface-bright": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "primary": "#000666",
+                    "secondary-container": "#fea619",
+                    "on-tertiary-fixed": "#071e27",
+                    "on-tertiary-fixed-variant": "#354a53",
+                    "on-tertiary-container": "#859ba6",
+                    "on-primary-fixed": "#000767",
+                    "on-secondary-fixed": "#2a1700",
+                    "on-primary-fixed-variant": "#343d96",
+                    "inverse-primary": "#bdc2ff",
+                    "on-surface": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e0e3e5",
+                    "outline": "#767683",
+                    "primary-container": "#1a237e",
+                    "tertiary-fixed": "#cfe6f2",
+                    "tertiary-container": "#1e333c",
+                    "primary-fixed-dim": "#bdc2ff",
+                    "secondary-fixed": "#ffddb8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope", "IBM Plex Sans Arabic"],
+                    "body": ["Inter", "IBM Plex Sans Arabic"],
+                    "label": ["Inter", "IBM Plex Sans Arabic"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'IBM Plex Sans Arabic', 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .industrial-gradient { background: linear-gradient(135deg, #000666 0%, #1a237e 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface/60 backdrop-blur-md sticky top-0 z-50 shadow-sm flex justify-between items-center w-full px-6 py-4 max-w-8xl mx-auto rtl">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-blue-950 tracking-tighter">الخطيب لوجستيك</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 font-semibold text-sm hover:text-blue-800 transition-colors" href="#">الرئيسية</a>
+<a class="text-slate-600 font-semibold text-sm hover:text-blue-800 transition-colors" href="#">الشحن</a>
+<a class="text-blue-900 border-b-2 border-amber-600 pb-1 font-semibold text-sm" href="#">المنتجات</a>
+<a class="text-slate-600 font-semibold text-sm hover:text-blue-800 transition-colors" href="#">لوحة التحكم</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="bg-surface-container-high border-none rounded-full pr-10 pl-4 py-2 text-sm w-64 focus:ring-2 focus:ring-secondary-container" placeholder="بحث عن منتج أو SKU..." type="text"/>
+</div>
+<button class="p-2 hover:bg-slate-100/50 rounded-full transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+</button>
+<button class="p-2 hover:bg-slate-100/50 rounded-full transition-colors scale-95 active:scale-90">
+<span class="material-symbols-outlined text-slate-600">account_circle</span>
+</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Hero / Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-extrabold text-primary tracking-tight mb-4 leading-tight">دليل المعدات الصناعية</h1>
+<p class="text-secondary font-semibold text-lg max-w-2xl">دقة • سرعة • أمان | نوفر أحدث خطوط الإنتاج والآلات المتطورة لدعم نمو أعمالكم الصناعية.</p>
+</header>
+<!-- Search and Filter Shell -->
+<section class="mb-12 grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+<div class="lg:col-span-4">
+<label class="block text-sm font-bold text-on-surface-variant mb-2 mr-1">البحث السريع</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-high border-none rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary transition-all text-on-surface" placeholder="اسم المنتج أو رمز SKU..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+</div>
+</div>
+<div class="lg:col-span-5">
+<label class="block text-sm font-bold text-on-surface-variant mb-2 mr-1">التصنيفات</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full industrial-gradient text-white text-sm font-bold shadow-md">الكل</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors">خطوط الإنتاج</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors">آلات حديثة</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface-variant text-sm font-bold hover:bg-surface-container-high transition-colors">قطع الغيار</button>
+</div>
+</div>
+<div class="lg:col-span-3 flex justify-end">
+<button class="w-full lg:w-auto px-8 py-4 bg-secondary-container text-on-secondary-container rounded-full font-bold shadow-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+<span class="material-symbols-outlined">tune</span>
+                    تصفية متقدمة
+                </button>
+</div>
+</section>
+<!-- Product Grid (Asymmetric Bento Style Influence) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-bright transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern industrial robotic arm assembly line in a clean high-tech manufacturing facility with blue lighting and steel textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWTOW0Fyixd-CQe8C2wVmkIVKPN32gQl0J1cmwSUyx4Uy37QmAKOMSv3QQGbG-0omXS77arY2vl8XOnp9MTrLZZspvXjIBtz1ke9MODpyHae2pT3Gjb7uVvdNZSkgB9YuxTc0dDxLZg8_ZTouPoXu3nRclnnCipN2lfRRKn9Uuyah794XoEf3R26-wHSJ2CthygxfKjdp0sclFfghp08PrOxxfgqOLiV1hz6ea-FMRdYHZe95gzCBvbIm0gPdctiW6V-ORDlgUfA"/>
+<div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-sm">SKU: PRO-LINE-99</div>
+</div>
+<div class="p-6">
+<span class="text-secondary text-xs font-black uppercase tracking-widest mb-2 block">خطوط الإنتاج</span>
+<h3 class="text-xl font-bold text-primary mb-3">خط إنتاج التغليف الأوتوماتيكي</h3>
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">نطاق السعر</p>
+<p class="text-lg font-extrabold text-on-surface">$12,500 - $18,000</p>
+</div>
+<div class="text-left">
+<p class="text-xs text-slate-500 mb-1">أقل كمية (MOQ)</p>
+<p class="text-sm font-bold text-on-surface">1 وحدة كاملة</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        عرض التفاصيل
+                    </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-bright transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Heavy duty industrial CNC milling machine carving metal with cool blue sparks and precision engineering details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyaBVwz6agdpmjB2jl-C8qke9OBf3NrgQzfpqnHy43QigGc4RPGMQbHxvuqF7Sb6BDVGnvjeQYXcKxnD5s-wCFTVr9Zw_t8l8aZe-51sHLJoFLJCYpnU6QlQXYJJlrcjeYo3r7pBfKQabXw8EQ6CCYIAhJ2a5VycBPME9pnjaofs8xvN6IsWtX1yAMyXAcIJDN_SXxjAb1UJpeuB2hE3DDp3QK83gJOsyi3UuV8n11Rv5-UKqz58WexFWpjDE00IChukIgEPT64g"/>
+<div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-sm">SKU: MACH-CNC-V3</div>
+</div>
+<div class="p-6">
+<span class="text-secondary text-xs font-black uppercase tracking-widest mb-2 block">آلات حديثة</span>
+<h3 class="text-xl font-bold text-primary mb-3">ماكينة CNC خماسية المحاور</h3>
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">نطاق السعر</p>
+<p class="text-lg font-extrabold text-on-surface">$45,000 - $62,000</p>
+</div>
+<div class="text-left">
+<p class="text-xs text-slate-500 mb-1">أقل كمية (MOQ)</p>
+<p class="text-sm font-bold text-on-surface">1 مجموعة</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        عرض التفاصيل
+                    </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-bright transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract view of industrial gears and machinery parts with golden lighting reflecting on polished steel surfaces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB17PlgPZwUE8A8pUM4Ed-6V14LafPeERznhK_nCY8kFIEs92iuZklzaWmEHZmMoydo7gcGzLRcBksC8Q7bJL6oBKxhmlqjIWiM-2crrhm1ySq_LQxkGoSslQhgl4YZ5IcmbkhI_wN9I3w9i853bki5SdCrOf3mId2kU2c3EZQf_ub5fbtHKSNadtTvacq4tLQiR-FSTrQUSI8xva842eGwxLKQaeE7d8Ewe6YLRaNGTXs_IRlz339ILfOpdCpqzHQaRbXNBDHejg"/>
+<div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-sm">SKU: PART-HYD-50</div>
+</div>
+<div class="p-6">
+<span class="text-secondary text-xs font-black uppercase tracking-widest mb-2 block">قطع الغيار</span>
+<h3 class="text-xl font-bold text-primary mb-3">مضخات هيدروليكية عالية الضغط</h3>
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">نطاق السعر</p>
+<p class="text-lg font-extrabold text-on-surface">$850 - $1,200</p>
+</div>
+<div class="text-left">
+<p class="text-xs text-slate-500 mb-1">أقل كمية (MOQ)</p>
+<p class="text-sm font-bold text-on-surface">10 قطع</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        عرض التفاصيل
+                    </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-bright transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Full production line for water bottling in a bright factory with clean conveyors and transparent plastic bottles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeMqRrRK0bB-3iUuZ_10oxjpVqQp1fUvWGUR8TATQdtWQv36QcuDwwbP6g-jEBtC2ESKx9He_f1UYgcM-yE0YaxOUxjhVzivFORL7-oX2gVOpLwc2wHz1z8K9OHa5tSzX5aTZSc2ac05TIWGvEvd0OY32pzvEcz-wkyOFQMhoxQpR8M7SqRuf9HOrgvrDtDCYTgm8DSeM2oe5j7tr0f1C-slG08K7RPwhFLkD2gOOBH81TOdCsUESNY6iGLmd9OQ75L2o7HVX_cw"/>
+<div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-sm">SKU: PRO-WAT-01</div>
+</div>
+<div class="p-6">
+<span class="text-secondary text-xs font-black uppercase tracking-widest mb-2 block">خطوط الإنتاج</span>
+<h3 class="text-xl font-bold text-primary mb-3">خط تعبئة مياه الشرب بالكامل</h3>
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">نطاق السعر</p>
+<p class="text-lg font-extrabold text-on-surface">$85,000 - $110,000</p>
+</div>
+<div class="text-left">
+<p class="text-xs text-slate-500 mb-1">أقل كمية (MOQ)</p>
+<p class="text-sm font-bold text-on-surface">1 خط كامل</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        عرض التفاصيل
+                    </button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:bg-surface-bright transition-all duration-300">
+<div class="aspect-video relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Digital controller board for industrial machinery with vibrant glowing green circuits and semiconductor chips" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm4tSpwymQ0P0-qzzcY-bThjrsZlmHaWYBTr5JOPkuiMqzeM3xMXLBYtSwzWWROds__mxZkJD_Yj5YY23rrZjqfjSSkPtMpmd0U2KGHnsLkLk52DRqgapSIQ5dTHS-lj5TZwGJonoDXFcKxqw_RRLjhm-0U5XiATdPoyUc_ATXAxlyvfUn_XhAgA5RanQ5BcDiKtlAN5HcW7ZTpM40ZN1ElRfdOFe9TumIact0jQSrBalHBZZnAxDurvU3SxiHQkgca8wtWNga3A"/>
+<div class="absolute top-4 right-4 bg-primary/90 text-white px-3 py-1 rounded-lg text-xs font-bold backdrop-blur-sm">SKU: MACH-CTRL-X</div>
+</div>
+<div class="p-6">
+<span class="text-secondary text-xs font-black uppercase tracking-widest mb-2 block">آلات حديثة</span>
+<h3 class="text-xl font-bold text-primary mb-3">نظام التحكم المنطقي PLC</h3>
+<div class="flex justify-between items-center mb-6">
+<div>
+<p class="text-xs text-slate-500 mb-1">نطاق السعر</p>
+<p class="text-lg font-extrabold text-on-surface">$3,200 - $5,500</p>
+</div>
+<div class="text-left">
+<p class="text-xs text-slate-500 mb-1">أقل كمية (MOQ)</p>
+<p class="text-sm font-bold text-on-surface">5 وحدات</p>
+</div>
+</div>
+<button class="w-full py-3 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">description</span>
+                        عرض التفاصيل
+                    </button>
+</div>
+</div>
+<!-- CTA Card / Special Offer -->
+<div class="group industrial-gradient rounded-xl p-8 flex flex-col justify-center items-center text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]">precision_manufacturing</span>
+</div>
+<h3 class="text-3xl font-black text-white mb-4 relative z-10">هل تبحث عن مواصفات خاصة؟</h3>
+<p class="text-slate-300 mb-8 relative z-10">نقدم حلولاً مخصصة حسب احتياجات مصنعكم، من التصميم إلى التركيب والتشغيل.</p>
+<button class="px-10 py-4 bg-secondary-container text-on-secondary-container rounded-full font-bold shadow-2xl relative z-10 hover:scale-105 transition-transform">
+                    اطلب استشارة مجانية
+                </button>
+</div>
+</div>
+<!-- Pagination (Minimalist) -->
+<div class="mt-16 flex justify-center items-center gap-2">
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl industrial-gradient text-white font-bold">1</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors font-bold">2</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors font-bold">3</button>
+<span class="mx-2 text-slate-400">...</span>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-lowest hover:bg-surface-container-high transition-colors font-bold">12</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-xl bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-300 mt-20 w-full px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 rtl">
+<div>
+<div class="text-xl font-bold text-white mb-4">الخطيب لوجستيك</div>
+<p class="text-sm leading-relaxed mb-6">شريككم الموثوق في استيراد وتجهيز المصانع بأحدث التقنيات العالمية لضمان أعلى مستويات الإنتاجية.</p>
+</div>
+<div>
+<h4 class="text-amber-500 font-bold mb-4">روابط سريعة</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-400 hover:text-white transition-transform hover:translate-x-1 inline-block" href="#">عن الشركة</a></li>
+<li><a class="text-slate-400 hover:text-white transition-transform hover:translate-x-1 inline-block" href="#">خدمات الشحن</a></li>
+<li><a class="text-amber-400 underline" href="#">كتالوج المنتجات</a></li>
+<li><a class="text-slate-400 hover:text-white transition-transform hover:translate-x-1 inline-block" href="#">الدعم الفني</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-amber-500 font-bold mb-4">اتصل بنا</h4>
+<ul class="space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">phone</span> +9647500773200</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">phone</span> +963936042000</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">mail</span> alkhatiblogistics@gmail.com</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">location_on</span> alkhatib2000</li>
+</ul>
+</div>
+<div class="md:col-span-3 pt-8 border-t border-slate-800 text-center text-xs">
+            © 2024 الخطيب لوجستيك. جميع الحقوق محفوظة
+        </div>
+</footer>
+<!-- Mobile Bottom Navigation Bar (PWA Style) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 rtl bg-surface/60 backdrop-blur-lg border-t border-slate-200/20 shadow-[0_-12px_32px_-4px_rgba(0,7,103,0.08)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[10px] font-bold">الرئيسية</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 text-blue-900 rounded-2xl px-5 py-2 translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-manrope text-[10px] font-bold">المنتجات</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-manrope text-[10px] font-bold">الشحن</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-2" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-manrope text-[10px] font-bold">تواصل</span>
+</a>
+</nav>
+</body></html>
