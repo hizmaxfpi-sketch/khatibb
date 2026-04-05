@@ -90,24 +90,24 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
                 <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-10 h-10 object-contain">
                     <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
                 </a>
-                <div class="flex items-center gap-6 text-sm font-bold">
-                    <a href="index.html" class="text-on-surface hover:text-secondary transition-colors">الرئيسية</a>
-                    <a href="all-products.html" class="text-on-surface hover:text-secondary transition-colors">المنتجات</a>
-                    <a href="shipment-trucker.html" class="text-on-surface hover:text-secondary transition-colors">تتبع الشحنة</a>
-                    <a href="offers.html" class="text-on-surface hover:text-secondary transition-colors">العروض</a>
-                    <a href="contact.html" class="text-on-surface hover:text-secondary transition-colors">تواصل معنا</a>
-                    <a href="admin.html" class="text-secondary border-b-2 border-secondary pb-1">لوحة التحكم</a>
+                <div class="flex items-center gap-6 text-base font-bold">
+                    <a href="index.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">الرئيسية</a>
+                    <a href="all-products.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">المنتجات</a>
+                    <a href="shipment-trucker.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">تتبع الشحنة</a>
+                    <a href="offers.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">العروض</a>
+                    <a href="contact.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">تواصل معنا</a>
+                    <a href="admin.html" class="text-secondary border-b-2 border-secondary pb-1 px-2 py-1 rounded-lg hover:bg-secondary/10 transition-all">لوحة التحكم</a>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <div class="relative">
-                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-xl">search</span>
-                    <input type="text" placeholder="بحث..." class="pr-10 pl-4 py-2 bg-surface-container-high rounded-full border-none text-sm focus:ring-2 focus:ring-primary w-48 transition-all focus:w-64">
+                    <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl">search</span>
+                    <input type="text" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
                 </div>
-                <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors">shopping_cart</a>
-                <button class="material-symbols-outlined text-outline hover:text-primary transition-colors">account_circle</button>
+                <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors text-2xl hover:scale-110">shopping_cart</a>
             </div>
         </div>
     </nav>
@@ -402,26 +402,30 @@
 </div>
 
     <!-- Unified Bottom Navigation (Visible < 768px) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center pt-2 pb-5 rtl shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
-        <a href="index.html" class="flex flex-col items-center gap-1 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">home</span>
-            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center pt-1 pb-3 rtl shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
+        <a href="index.html" class="flex flex-col items-center gap-0.5 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">home</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a href="all-products.html" class="flex flex-col items-center gap-1 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">inventory_2</span>
-            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
+        <a href="all-products.html" class="flex flex-col items-center gap-0.5 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">inventory_2</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a href="shipment-trucker.html" class="flex flex-col items-center gap-1 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">local_shipping</span>
-            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">الشحن</span>
+        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0.5 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">local_shipping</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الشحن</span>
         </a>
-        <a href="request.html" class="flex flex-col items-center gap-1 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">add_box</span>
-            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        <a href="request.html" class="flex flex-col items-center gap-0.5 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">add_box</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
         </a>
-        <a href="admin.html" class="flex flex-col items-center gap-1 group active">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-colors">dashboard</span>
-            <span class="text-[11px] font-bold text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
+        <a href="contact.html" class="flex flex-col items-center gap-0.5 group">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">phone</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        </a>
+        <a href="admin.html" class="flex flex-col items-center gap-0.5 group active">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">dashboard</span>
+            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
         </a>
     </nav>
 
