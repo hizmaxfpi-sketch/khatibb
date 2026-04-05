@@ -3,7 +3,7 @@
 <html dir="rtl" lang="ar"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>إتمام الطلب | الخطيب لوجستيك</title>
+<title>طلب خدمة | الخطيب لوجستيك</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -86,10 +86,10 @@
 <body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
     <!-- Unified Desktop Header (Visible > 768px) -->
     <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center rtl">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
-                <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-10 h-10 object-contain">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-24 h-24 object-contain border-2 border-primary/20 rounded-2xl p-1">
                     <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
                 </a>
                 <div class="flex items-center gap-6 text-base font-bold">
@@ -112,8 +112,8 @@
     </nav>
 
     <!-- Unified Mobile Header (Visible < 768px) -->
-    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-14 flex justify-between items-center border-b border-outline-variant/20 rtl">
-        <a href="index.html" class="text-lg font-black text-primary tracking-tighter">الخطيب لوجستيك</a>
+    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl">
+        <a href="index.html" class="flex items-center gap-2 text-xl font-black text-primary tracking-tighter"><img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">الخطيب لوجستيك</a>
         <div class="flex items-center gap-3">
             <button class="material-symbols-outlined text-outline text-2xl">search</button>
             <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
@@ -240,7 +240,7 @@
 <!-- Product Item -->
 <div class="flex gap-4 items-center">
 <div class="w-16 h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="heavy industrial wooden shipping crate with steel reinforcements in a professional logistics warehouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCB8nEdRYtlON0fSBfm245yeMOgZbvODZX7JMCkCoKpc9PdE9dKPKdIBFhqyxuDWexh2o2RQa5iIRqTNK8Wn-4ziU1KK75HZps2iggiBjzfCpGnZ_7W_KvORBNrAjozF20YSaod3ElyZ3VGzKYYzalsJHXVPDtKCdETv6Hnun3UmhX6HgNWOGCvrE0KqBvC14va3lQ4tFsi20S6cFYPC1J1AO9ADOdHMAQrjGcVO2bd_Zj6NNvql2rYXnQPIjPAlW0osBgo6TjmQ"/>
+<img class="w-full h-full object-cover" alt="heavy industrial wooden shipping crate" src="img/1.png"/>
 </div>
 <div class="flex-grow">
 <h3 class="font-bold text-sm">خدمة شحن دولي - وزن 50كجم</h3>
@@ -253,7 +253,7 @@
 <!-- Product Item -->
 <div class="flex gap-4 items-center">
 <div class="w-16 h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" data-alt="industrial shipping supplies including cardboard boxes and bubble wrap on a clean concrete floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABCODalP6dzWHvdnsasHKtJ0LJ8HuNlLg1YxUzr4O4EaxXeUfb_AXDHUPBlk_bMMh8fGeF3HxymXRuR7-WvkGRTt6krS4wEvePZMmWAFWhj4tYAMc9Mi0VJPPXQad7BAzrRz9AqO5UYhkgxqD0RzsQd_WgwHTcV6LYqcbqyeOrNlzZFb4d8ZJMCMjYmTj6erAZwBr-filzY4XWAAsjueLMweB4l7RmNMhOVq_E8syhi6k5a-TqfIWAEJmk0tv3Klg3lCD3t2t5cg"/>
+<img class="w-full h-full object-cover" alt="industrial shipping supplies" src="img/3.png"/>
 </div>
 <div class="flex-grow">
 <h3 class="font-bold text-sm">باقة التغليف الفاخر (المؤمن)</h3>
@@ -369,30 +369,31 @@
     </footer>
 
     <!-- Unified Bottom Navigation (Visible < 768px) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center pt-1 pb-3 rtl shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
-        <a href="index.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">home</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-around items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]"
+         style="background: linear-gradient(135deg, #d9e0e9 0%, #f4f0e9 100%);">
+        <a href="index.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a href="all-products.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">inventory_2</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
+        <a href="all-products.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">local_shipping</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الشحن</span>
+        <a href="shipment-trucker.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الشحن</span>
         </a>
-        <a href="request.html" class="flex flex-col items-center gap-0.5 group active">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">add_box</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        <a href="request.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">add_box</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">طلب</span>
         </a>
-        <a href="contact.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">phone</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        <a href="contact.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">تواصل</span>
         </a>
-        <a href="admin.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">dashboard</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
+        <a href="admin.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
+            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
         </a>
     </nav>
 

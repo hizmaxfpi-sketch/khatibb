@@ -87,10 +87,10 @@
 <body class="bg-surface text-on-surface">
     <!-- Unified Desktop Header (Visible > 768px) -->
     <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center rtl">
+        <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
                 <a href="index.html" class="flex items-center gap-2 group">
-                    <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-10 h-10 object-contain">
+                    <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-24 h-24 object-contain border-2 border-primary/20 rounded-2xl p-1">
                     <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
                 </a>
                 <div class="flex items-center gap-6 text-base font-bold">
@@ -113,8 +113,8 @@
     </nav>
 
     <!-- Unified Mobile Header (Visible < 768px) -->
-    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-14 flex justify-between items-center border-b border-outline-variant/20 rtl">
-        <a href="index.html" class="text-lg font-black text-primary tracking-tighter">الخطيب لوجستيك</a>
+    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl">
+        <a href="index.html" class="flex items-center gap-2 text-xl font-black text-primary tracking-tighter"><img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">الخطيب لوجستيك</a>
         <div class="flex items-center gap-3">
             <button class="material-symbols-outlined text-outline text-2xl">search</button>
             <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
@@ -130,16 +130,16 @@
 <span class="text-xs font-bold tracking-widest uppercase">التحكم الصناعي • المخزون</span>
 </div>
 <h1 class="text-4xl font-headline font-extrabold text-primary tracking-tight">إضافة منتج جديد</h1>
-<p class="text-on-surface-variant text-sm">قم بتوسيع الكتالوج الرقمي لشركة الخطيب بلوجستيك بدقة واحترافية.</p>
+<p class="text-on-surface-variant text-sm">إدارة وإضافة الآليات والمعدات الثقيلة لأسطول الخطيب لوجستيك.</p>
 </div>
 <div class="flex gap-3">
 <button class="px-6 py-2.5 rounded-full border border-outline-variant text-primary font-bold text-sm hover:bg-surface-container transition-colors flex items-center gap-2">
 <span class="material-symbols-outlined text-lg">content_copy</span>
-                    نسخ من منتج موجود
+                    نسخ من آلية سابقة
                 </button>
 <div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg text-xs text-on-surface-variant italic">
 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    تم حفظ المسودة تلقائياً: 14:02
+                    تم الحفظ: 14:02
                 </div>
 </div>
 </header>
@@ -152,35 +152,35 @@
 <div class="w-10 h-10 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-container">
 <span class="material-symbols-outlined">info</span>
 </div>
-<h2 class="text-xl font-bold text-primary">المعلومات الأساسية</h2>
+<h2 class="text-xl font-bold text-primary">معلومات الآلية</h2>
 </div>
 <div class="grid grid-cols-2 gap-6">
 <div class="col-span-2">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">اسم المنتج</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="مثال: عقد الذهب عيار 21 بتصميم هندسي" type="text"/>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">اسم الآلية / الموديل</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="مثال: حفارة هيدروليكية كاتربيلر 320" type="text"/>
 </div>
 <div class="col-span-2">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">الوصف التفصيلي</label>
-<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="أدخل تفاصيل التصنيع، القصة وراء التصميم، والمواصفات الفريدة..." rows="4"></textarea>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">المواصفات الفنية</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="أدخل قدرة المحرك، الوزن التشغيلي، العمق الأقصى للحفر..." rows="4"></textarea>
 </div>
 <div class="col-span-1">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">السعر (SAR)</label>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">السعر ($)</label>
 <input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="0.00" type="number"/>
 </div>
 <div class="col-span-1">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">الوزن بالجرام</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="مثال: 4.5" type="number"/>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">الحمولة القصوى (طن)</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="مثال: 22.5" type="number"/>
 </div>
 <div class="col-span-1">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">النقاوة</label>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">الحالة</label>
 <select class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm">
-<option>18 قيراط</option>
-<option>21 قيراط</option>
-<option>24 قيراط</option>
+<option>جديد بالكامل</option>
+<option>مستعمل - ممتاز</option>
+<option>مستعمل - جيد جداً</option>
 </select>
 </div>
 <div class="col-span-1">
-<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">الكمية المتوفرة</label>
+<label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">العدد المتوفر</label>
 <input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-sm" placeholder="0" type="number"/>
 </div>
 </div>
@@ -224,30 +224,30 @@
 <div>
 <label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">النوع</label>
 <select class="w-full bg-surface-container-high border-none rounded-lg p-3 text-sm">
-<option>Necklace - عقد</option>
-<option>Bracelet - سوار</option>
-<option>Ring - خاتم</option>
-<option>Earring - قرط</option>
+<option>Excavator - حفارة</option>
+<option>Truck - شاحنة</option>
+<option>Crane - رافعة</option>
+<option>Bulldozer - بلدوزر</option>
 </select>
 </div>
 <div>
-<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">المناسبة</label>
+<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">الاستخدام</label>
 <div class="grid grid-cols-2 gap-2 mt-2">
 <label class="flex items-center gap-2 p-3 bg-surface rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
 <input class="rounded text-primary focus:ring-primary" type="checkbox"/>
-<span class="text-xs">زفاف</span>
+<span class="text-xs">إنشائي</span>
 </label>
 <label class="flex items-center gap-2 p-3 bg-surface rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
 <input class="rounded text-primary focus:ring-primary" type="checkbox"/>
-<span class="text-xs">هدية</span>
+<span class="text-xs">تعدين</span>
 </label>
 <label class="flex items-center gap-2 p-3 bg-surface rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
 <input checked="" class="rounded text-primary focus:ring-primary" type="checkbox"/>
-<span class="text-xs">يومي</span>
+<span class="text-xs">لوجستي</span>
 </label>
 <label class="flex items-center gap-2 p-3 bg-surface rounded-lg cursor-pointer hover:bg-surface-container transition-colors">
 <input class="rounded text-primary focus:ring-primary" type="checkbox"/>
-<span class="text-xs">تخرج</span>
+<span class="text-xs">زراعي</span>
 </label>
 </div>
 </div>
@@ -256,29 +256,29 @@
 <section class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_-4px_rgba(0,7,103,0.04)]">
 <h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
 <span class="material-symbols-outlined text-secondary">description</span>
-                            المواصفات الإضافية
+                            المواصفات التقنية
                         </h3>
 <div class="space-y-4">
 <div>
-<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">المادة</label>
+<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">المحرك</label>
 <select class="w-full bg-surface-container-high border-none rounded-lg p-3 text-sm">
-<option>Yellow Gold - ذهب أصفر</option>
-<option>White Gold - ذهب أبيض</option>
-<option>Rose Gold - ذهب وردي</option>
+<option>Diesel Turbo - ديزل توربو</option>
+<option>Electric - كهربائي</option>
+<option>Hybrid - هجين</option>
 </select>
 </div>
 <div>
-<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">بلد الصنع</label>
+<label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">العلامة التجارية</label>
 <select class="w-full bg-surface-container-high border-none rounded-lg p-3 text-sm">
-<option>إيطاليا</option>
-<option>السعودية</option>
-<option>الإمارات</option>
-<option>تركيا</option>
+<option>Caterpillar - كاتربيلر</option>
+<option>Mercedes-Benz - مرسيدس</option>
+<option>Komatsu - كوماتسو</option>
+<option>Volvo - فولفو</option>
 </select>
 </div>
 <div>
 <label class="block text-[10px] font-bold text-on-surface-variant mb-1 uppercase tracking-widest">الضمان</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 text-sm" placeholder="مثال: ضمان مدى الحياة على النقاء" type="text"/>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-3 text-sm" placeholder="مثال: ضمان سنتين على الأجزاء الهيدروليكية" type="text"/>
 </div>
 </div>
 </section>
@@ -294,11 +294,11 @@
 <div class="space-y-4">
 <div>
 <label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">عنوان الصفحة (Meta Title)</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-4 text-sm" placeholder="عقد ذهب ملكي عيار 21 | تشكيلة الخطيب الفاخرة" type="text"/>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 text-sm" placeholder="حفارة كاتربيلر 320 | آليات الخطيب لوجستيك" type="text"/>
 </div>
 <div>
 <label class="block text-xs font-bold text-on-surface-variant mb-2 uppercase tracking-wider">وصف البحث (Meta Description)</label>
-<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 text-sm" placeholder="اكتشف روعة التصميم ودقة التصنيع في عقد الذهب عيار 21 المتوفر حصرياً..." rows="2"></textarea>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 text-sm" placeholder="أقوى الآليات الثقيلة والمعدات الإنشائية متوفرة الآن لدى الخطيب لوجستيك..." rows="2"></textarea>
 </div>
 </div>
 </section>
@@ -345,29 +345,29 @@
 <section class="sticky top-24">
 <div class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg border border-surface-container-high">
 <div class="relative h-64 bg-slate-200">
-<img alt="Live Preview" class="w-full h-full object-cover mix-blend-overlay" data-alt="exquisite close-up of a gold necklace with intricate filigree on a dark velvet display stand, professional jewelry photography, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN9zT17H0UJzc_ZDMZwWckEPRo7d17Gw-AfP0h2Hy16skDLU7lygmPYtDoLWyKkLuwUjxrwLblQXjiehywPRoWmL-ezgsIzjcX0vKQ0jUymdtBBBuYo3CNRY5wXvK8Rq7ag2ZZB9hIip7y2D1BGCLpWXxBImPGTTxusck8Hs9XzaC43yyacwwd4v6uGs4mPzw7Qa-E14B3NgFD_h7tKUd3_P1UOmzKmmLSSLH3KmnDVQx3hsYVHyvuisPTLmlwGu9Jgt1juEDDbA"/>
+<img alt="Live Preview" class="w-full h-full object-cover mix-blend-overlay" src="img/1.png"/>
 <div class="absolute top-4 right-4 bg-primary text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase">جديد</div>
 </div>
 <div class="p-6 space-y-3">
 <div class="flex justify-between items-start">
 <div>
-<p class="text-[10px] text-secondary font-bold tracking-widest uppercase">مجوهرات الخطيب</p>
-<h4 class="text-lg font-bold text-primary mt-1">عقد الذهب عيار 21</h4>
+<p class="text-[10px] text-secondary font-bold tracking-widest uppercase">آليات الخطيب</p>
+<h4 class="text-lg font-bold text-primary mt-1">حفارة كاتربيلر 320</h4>
 </div>
-<span class="text-lg font-bold text-secondary">3,450 SAR</span>
+<span class="text-lg font-bold text-secondary">145,000 $</span>
 </div>
 <div class="flex gap-4 border-t border-surface-container pt-4">
 <div class="flex flex-col items-center">
-<span class="text-[9px] text-on-surface-variant uppercase">الوزن</span>
-<span class="text-xs font-bold">12.4g</span>
+<span class="text-[9px] text-on-surface-variant uppercase">الحمولة</span>
+<span class="text-xs font-bold">22.5t</span>
 </div>
 <div class="flex flex-col items-center">
-<span class="text-[9px] text-on-surface-variant uppercase">النقاوة</span>
-<span class="text-xs font-bold">21k</span>
+<span class="text-[9px] text-on-surface-variant uppercase">المحرك</span>
+<span class="text-xs font-bold">ديزل</span>
 </div>
 <div class="flex flex-col items-center">
-<span class="text-[9px] text-on-surface-variant uppercase">المنشأ</span>
-<span class="text-xs font-bold">إيطالي</span>
+<span class="text-[9px] text-on-surface-variant uppercase">العلامة</span>
+<span class="text-xs font-bold">CAT</span>
 </div>
 </div>
 </div>
