@@ -281,6 +281,14 @@ a:hover {
   color: var(--on-secondary-container);
 }
 
+/* Mobile Header Element Shadows */
+@media (max-width: 768px) {
+  header.md\:hidden * {
+    text-shadow: 0 0 1px white, 0 0 2px white;
+    filter: drop-shadow(0 0 1px white);
+  }
+}
+
 /* ========================================
    Component Base Styles
    ======================================== */
