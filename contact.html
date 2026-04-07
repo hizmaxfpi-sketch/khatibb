@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
       tailwind.config = {
@@ -88,9 +88,12 @@
     <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
-                <a href="index.html" class="flex items-center gap-2 group">
+                <a href="index.html" class="flex items-center gap-3 group">
                     <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-24 h-24 object-contain border-2 border-primary/20 rounded-2xl p-1">
-                    <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                        <span class="text-sm font-bold text-outline mt-1 group-hover:text-secondary transition-colors">شعارنا: دقـــة * ســرعة * أمــان</span>
+                    </div>
                 </a>
                 <div class="flex items-center gap-6 text-base font-bold">
                     <a href="index.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">الرئيسية</a>
@@ -102,42 +105,56 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="relative">
-                    <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl">search</span>
-                    <input type="text" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
-                </div>
+                <form class="relative group" action="all-products.html" method="GET">
+                    <button type="submit" class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10">search</button>
+                    <input type="search" name="q" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
+                </form>
                 <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors text-2xl hover:scale-110">shopping_cart</a>
             </div>
         </div>
     </nav>
 
     <!-- Unified Mobile Header (Visible < 768px) -->
-    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl">
-        <a href="index.html" class="flex items-center gap-2 text-xl font-black text-primary tracking-tighter"><img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">الخطيب لوجستيك</a>
+    <header class="md:hidden   backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl" style="z-index: 50;">
+        <a href="index.html" class="flex items-center gap-2">
+            <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">
+            <div class="flex flex-col">
+                <span class="text-xl font-black text-primary tracking-tighter">الخطيب لوجستيك</span>
+                <span class="text-[10px] max-[480px]:text-[12px] font-bold text-outline mt-0.5 transition-all">شعارنا: دقـــة * ســرعة * أمــان</span>
+            </div>
+        </a>
         <div class="flex items-center gap-3">
-            <button class="material-symbols-outlined text-outline text-2xl">search</button>
-            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
-            <button class="material-symbols-outlined text-outline text-2xl">notifications</button>
+            <button class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors" onclick="const el = document.getElementById('mobileSearch'); el.classList.toggle('opacity-0'); el.classList.toggle('-translate-y-4'); el.classList.toggle('pointer-events-none');">search</button>
+            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors">shopping_cart</a>
         </div>
     </header>
+    <!-- Mobile Search Bar (Animated) -->
+    <div id="mobileSearch" class="md:hidden bg-surface border-b border-outline-variant/20 px-4 fixed w-full top-20 left-0 transition-all duration-300 ease-in-out opacity-0 -translate-y-4 pointer-events-none" style="z-index: 40;">
+        <div class="py-3 max-[480px]:py-2 transition-all">
+            <form action="all-products.html" method="GET" class="relative group w-full">
+                <button type="submit" class="material-symbols-outlined absolute right-4 max-[480px]:right-3 top-1/2 -translate-y-1/2 text-outline text-2xl max-[480px]:text-[20px] group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10 w-fit">search</button>
+                <input type="search" name="q" placeholder="بحث..." class="pr-12 max-[480px]:pr-10 pl-6 max-[480px]:pl-4 py-3 max-[480px]:py-1.5 bg-surface-container-high rounded-full border-none text-base max-[480px]:text-sm focus:ring-2 focus:ring-primary w-full shadow-sm hover:shadow-md transition-all">
+            </form>
+        </div>
+    </div>
 <main class="pt-24 pb-32">
 <!-- Hero Section -->
 <section class="px-6 max-w-7xl mx-auto mb-20">
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 <div class="order-2 lg:order-1">
 <h2 class="text-secondary font-bold text-lg mb-4 tracking-wider">دقة • سرعة • أمان</h2>
-<h1 class="text-5xl md:text-6xl font-extrabold text-primary leading-tight mb-6 tracking-tighter">
+<h1 class="text-4xl laptop:text-6xl max-[480px]:text-3xl font-extrabold text-primary leading-tight mb-4 tracking-tighter">
                         نقل البضائع بمقاييس <br/> هندسية عالمية
                     </h1>
-<p class="text-on-surface-variant text-lg max-w-xl mb-8 leading-relaxed">
+<p class="text-on-surface-variant text-base laptop:text-xl max-[480px]:text-[13px] max-w-xl mb-8 max-[480px]:mb-6 leading-relaxed">
                         نحن لا ننقل الطرود فحسب، بل نبني جسوراً تجارية تربطك بالعالم. من الصين إلى العراق، نضمن لك وصول بضائعك بأمان واحترافية عالية.
                     </p>
 <div class="flex flex-wrap gap-4">
-<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-95 transition-transform">
+<button class="bg-secondary-container text-on-secondary-container px-6 py-3 laptop:px-8 laptop:py-4 max-[480px]:px-4 max-[480px]:py-2 max-[480px]:text-[13px] rounded-full font-bold flex items-center justify-center gap-2 laptop:gap-3 hover:scale-95 transition-transform w-[fit-content] max-[480px]:w-full">
 <span>ابدأ الشحن الآن</span>
-<span class="material-symbols-outlined">trending_flat</span>
+<span class="material-symbols-outlined max-[480px]:text-[18px]">trending_flat</span>
 </button>
-<button class="bg-surface-container-high text-primary px-8 py-4 rounded-full font-bold hover:bg-surface-container-highest transition-colors">
+<button class="bg-surface-container-high text-primary px-6 py-3 laptop:px-8 laptop:py-4 max-[480px]:px-4 max-[480px]:py-2 max-[480px]:text-[13px] rounded-full font-bold hover:bg-surface-container-highest transition-colors w-[fit-content] max-[480px]:w-full">
                             تتبع شحنتك
                         </button>
 </div>
@@ -145,7 +162,7 @@
 <div class="order-1 lg:order-2 relative">
 <div class="aspect-square rounded-full bg-primary-fixed absolute -z-10 -top-10 -right-10 w-64 h-64 blur-3xl opacity-30"></div>
 <div class="rounded-3xl overflow-hidden shadow-2xl">
-<img class="w-full h-[500px] object-cover" alt="Modern logistics hub" src="img/1.png"/>
+<img class="w-full h-[500px] object-cover" src="img/4.jpg"/>
 </div>
 </div>
 </div>
@@ -154,19 +171,19 @@
 <section class="px-6 max-w-7xl mx-auto mb-20">
 <div class="flex justify-between items-end mb-12">
 <div>
-<h3 class="text-primary text-3xl font-bold tracking-tight">خدماتنا اللوجستية</h3>
+<h3 class="text-primary text-2xl laptop:text-3xl max-[480px]:text-xl font-bold tracking-tight">خدماتنا اللوجستية</h3>
 <p class="text-outline mt-2">حلول متكاملة لسلسلة التوريد الخاصة بك</p>
 </div>
 <div class="hidden md:block h-[2px] flex-1 mx-12 bg-surface-container-high mb-4"></div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <!-- Card 1: China Shopping -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300">
+<div class="group bg-surface-container-lowest p-6 laptop:p-8 max-[480px]:p-4 rounded-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300">
 <div>
 <div class="w-14 h-14 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-6 group-hover:rotate-6 transition-transform">
 <span class="material-symbols-outlined text-3xl">shopping_cart</span>
 </div>
-<h4 class="text-xl font-bold text-primary mb-4">تسوق من الصين</h4>
+<h4 class="text-lg laptop:text-xl max-[480px]:text-base font-bold text-primary mb-2 laptop:mb-4">تسوق من الصين</h4>
 <p class="text-on-surface-variant leading-relaxed">
                             نوفر لك عنواناً في الصين مع خدمة فحص الجودة وتجميع الشحنات لتقليل التكاليف.
                         </p>
@@ -183,45 +200,45 @@
 </ul>
 </div>
 <!-- Card 2: Customs Clearance -->
-<div class="group industrial-gradient p-8 rounded-xl text-white flex flex-col justify-between shadow-xl">
+<div class="group industrial-gradient p-6 laptop:p-8 max-[480px]:p-4 rounded-xl text-white flex flex-col justify-between shadow-xl">
 <div>
 <div class="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-3xl">gavel</span>
 </div>
-<h4 class="text-xl font-bold mb-4">التخليص الجمركي في العراق</h4>
+<h4 class="text-lg laptop:text-xl max-[480px]:text-base font-bold mb-2 laptop:mb-4 text-secondary-container">التخليص الجمركي في العراق</h4>
 <p class="text-white/80 leading-relaxed">
                             فريق متخصص لضمان عبور بضاعتك من المنافذ العراقية بأسرع وقت وأقل جهد قانوني.
                         </p>
 </div>
 <div class="mt-8">
-<button class="w-full bg-amber-500 text-primary py-3 rounded-lg font-bold">استشارة جمركية مجانية</button>
+<button class="w-full bg-amber-500 text-primary py-2.5 laptop:py-3 max-[480px]:py-2 max-[480px]:text-[13px] rounded-lg font-bold">استشارة جمركية مجانية</button>
 </div>
 </div>
 <!-- Card 3: Global Payments -->
-<div class="group bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300">
+<div class="group bg-surface-container-lowest p-6 laptop:p-8 max-[480px]:px-3 max-[480px]:py-4 rounded-xl flex flex-col justify-between hover:bg-surface-bright transition-all duration-300">
 <div>
 <div class="w-14 h-14 bg-tertiary-fixed rounded-xl flex items-center justify-center text-tertiary mb-6 group-hover:rotate-6 transition-transform">
 <span class="material-symbols-outlined text-3xl">payments</span>
 </div>
-<h4 class="text-xl font-bold text-primary mb-4">حلول الدفع العالمية</h4>
+<h4 class="text-lg laptop:text-xl max-[480px]:text-base font-bold text-primary mb-2 laptop:mb-4">حلول الدفع العالمية</h4>
 <p class="text-on-surface-variant leading-relaxed">
                             تجاوز عوائق التحويل المالي. ادفع لمورديك في أي مكان في العالم بسهولة وأمان.
                         </p>
 </div>
 <div class="mt-6 flex gap-4">
-<span class="material-symbols-outlined text-outline text-3xl">credit_card</span>
-<span class="material-symbols-outlined text-outline text-3xl">account_balance</span>
+<img class="h-8 rounded opacity-50 grayscale hover:grayscale-0 transition-all" data-alt="Abstract credit card texture with metallic accents and secure digital encryption symbols" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUWOPj6_eHHTo21jsHAdPkhyA3Ow4oCtoQeywcipYmwmcaOT92ltBj40PoUEZVWBO__bBqU3HjuiKYx6UuLPSHCRq5wd83ClJXjiW1_utoXXkwmyHInNITljDE3zcqRlxnRsektOc_8HtZ57t5rXgCMY32Futgwen_jabb7lnVN5obBd8lxxA6MFf1l5u3kPZhO34vShknquz0JPLX4MlGdqSFfmXIT9sLMjW915xVstcOJmAExWAQXtjXWYfKkc3qkfc4vZNiog"/>
+<img class="h-8 rounded opacity-50 grayscale hover:grayscale-0 transition-all" data-alt="Close up of a financial payment terminal highlighting secure transaction processing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0ZKzVleF62O4Kmz1XhR606FPXroN-sQRy1kkpfG_YE7mGuEwQfvpidOboPlECnOm7mdIwBRt_r280SdlzESiaN_PBAJGLQYRaJABO2NO36Uadz58Xr5953gsqm2PCXD0PoG7K-6Ya7sNNYxGwP5cx-5se0z-UQ06cjZE5wgCq38gTwCVHfu5gx1x_HHtFHqlwXbqG4XP6ctrphtTsanIH3JviQtpf-jl6UBJWny4phwXZTjLONP_hbhBzqZHcOWPLXSKzvNa_VA"/>
 </div>
 </div>
 </div>
 </section>
 <!-- Shipping Calculator -->
 <section class="px-6 max-w-7xl mx-auto mb-20">
-<div class="bg-surface-container-low rounded-3xl p-8 md:p-12 overflow-hidden relative">
+<div class="bg-surface-container-low rounded-3xl p-8 md:p-12 max-[480px]:p-4 overflow-hidden relative">
 <div class="absolute top-0 left-0 w-full h-1 bg-amber-500"></div>
 <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
 <div class="lg:col-span-2">
-<h3 class="text-3xl font-bold text-primary mb-6">حاسبة الشحن التقديرية</h3>
+<h3 class="text-2xl laptop:text-3xl max-[480px]:text-xl font-bold text-primary mb-4 laptop:mb-6">حاسبة الشحن التقديرية</h3>
 <p class="text-on-surface-variant mb-8 leading-relaxed">
                             أدخل أبعاد ووزن شحنتك للحصول على سعر تقديري فوري. السعر النهائي يتم تأكيده بعد الاستلام الفعلي.
                         </p>
@@ -233,7 +250,7 @@
 <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="space-y-4">
 <label class="block text-sm font-bold text-primary">نوع الشحن</label>
-<select class="w-full bg-surface-container-high border-none rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary">
+<select class="w-full bg-surface-container-high border-none rounded-xl py-4 px-4 max-[480px]:py-2 max-[480px]:px-3 focus:ring-2 focus:ring-primary">
 <option>شحن جوي سريع (3-5 أيام)</option>
 <option>شحن بحري (30-45 يوم)</option>
 <option>شحن بري دولي</option>
@@ -241,18 +258,18 @@
 </div>
 <div class="space-y-4">
 <label class="block text-sm font-bold text-primary">الوزن (كجم)</label>
-<input class="w-full bg-surface-container-high border-none rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary" placeholder="0.00" type="number"/>
+<input class="w-full bg-surface-container-high border-none rounded-xl py-4 px-4 max-[480px]:py-2 max-[480px]:px-3 focus:ring-2 focus:ring-primary" placeholder="0.00" type="number"/>
 </div>
 <div class="space-y-4">
 <label class="block text-sm font-bold text-primary">الأبعاد (سم)</label>
 <div class="flex gap-2">
-<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary" placeholder="طول" type="number"/>
-<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary" placeholder="عرض" type="number"/>
-<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 focus:ring-2 focus:ring-primary" placeholder="ارتفاع" type="number"/>
+<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 max-[480px]:py-2 max-[480px]:px-2 focus:ring-2 focus:ring-primary" placeholder="طول" type="number"/>
+<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 max-[480px]:py-2 max-[480px]:px-2 focus:ring-2 focus:ring-primary" placeholder="عرض" type="number"/>
+<input class="w-1/3 bg-surface-container-high border-none rounded-xl py-4 px-4 max-[480px]:py-2 max-[480px]:px-2 focus:ring-2 focus:ring-primary" placeholder="ارتفاع" type="number"/>
 </div>
 </div>
 <div class="space-y-4 flex flex-col justify-end">
-<button class="w-full industrial-gradient text-white py-4 rounded-xl font-bold hover:shadow-lg transition-shadow">احسب التكلفة</button>
+<button class="w-full industrial-gradient text-white py-3 laptop:py-4 max-[480px]:py-2.5 max-[480px]:text-[13px] rounded-xl font-bold hover:shadow-lg transition-shadow">احسب التكلفة</button>
 </div>
 </div>
 </div>
@@ -260,19 +277,19 @@
 </section>
 <!-- CTA Section -->
 <section class="px-6 max-w-7xl mx-auto">
-<div class="bg-primary text-white rounded-3xl p-12 text-center overflow-hidden relative">
+<div class="bg-primary text-white rounded-3xl p-8 laptop:p-12 max-[480px]:p-6 text-center overflow-hidden relative">
 <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"></div>
-<h3 class="text-4xl font-bold mb-6">هل لديك استفسار خاص؟</h3>
-<p class="text-white/70 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+<h3 class="text-2xl laptop:text-4xl max-[480px]:text-xl font-bold mb-4 laptop:mb-6 text-secondary-container">هل لديك استفسار خاص؟</h3>
+<p class="text-white/70 text-base laptop:text-lg max-[480px]:text-[13px] mb-8 laptop:mb-10 max-w-2xl mx-auto leading-relaxed">
                     فريقنا متاح على مدار الساعة للإجابة على جميع تساؤلاتكم وتزويدكم بأفضل عروض الأسعار.
                 </p>
 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-<a class="bg-[#25D366] text-white px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 hover:brightness-110 transition-all" href="https://wa.me/9647500773200">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+<a class="bg-[#25D366] text-white px-6 py-3 laptop:px-10 laptop:py-5 max-[480px]:px-4 max-[480px]:py-2.5 max-[480px]:text-[13px] rounded-full font-bold flex items-center justify-center gap-2 laptop:gap-3 hover:brightness-110 transition-all" href="https://wa.me/9647500773200">
+<span class="material-symbols-outlined max-[480px]:text-[18px]" style="font-variation-settings: 'FILL' 1;">chat</span>
                         استفسر عبر واتساب
                     </a>
-<a class="bg-white text-primary px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 hover:bg-surface-container-high transition-all" href="tel:+9647500773200">
-<span class="material-symbols-outlined">call</span>
+<a class="bg-white text-primary px-6 py-3 laptop:px-10 laptop:py-5 max-[480px]:px-4 max-[480px]:py-2.5 max-[480px]:text-[13px] rounded-full font-bold flex items-center justify-center gap-2 laptop:gap-3 hover:bg-surface-container-high transition-all" href="tel:+9647500773200">
+<span class="material-symbols-outlined max-[480px]:text-[18px]">call</span>
                         اتصل بنا الآن
                     </a>
 </div>
@@ -280,85 +297,91 @@
 </section>
 </main>
     <!-- Footer -->
-    <footer class="bg-slate-900 dark:bg-black w-full mt-auto">
-        <div class="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 rtl">
+    <!-- Footer -->
+    <footer class="bg-slate-900 dark:bg-black w-full mt-auto pb-20 md:pb-12">
+        <div class="w-full px-5 py-8 md:px-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 rtl">
             <div>
-                <div class="text-xl font-bold text-white mb-4">الخطيب لوجستيك</div>
-                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                <div class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">الخطيب لوجستيك</div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-4 md:mb-6">
                     الشركة الرائدة في تقديم الحلول اللوجستية المتكاملة، نربط الأسواق العالمية بقلب المنطقة العربية عبر شبكة نقل احترافية.
                 </p>
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">social_leaderboard</span>
+                <div class="flex gap-3 md:gap-4">
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">social_leaderboard</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">language</span>
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">language</span>
                     </a>
                 </div>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">اتصل بنا</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">اتصل بنا</h4>
+                <ul class="space-y-3 md:space-y-4">
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+9647500773200</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+963936042000</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">mail</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">mail</span>
                         <span>alkhatiblogistics@gmail.com</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">alternate_email</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">alternate_email</span>
                         <span>alkhatib2000</span>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">روابط سريعة</h4>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">روابط سريعة</h4>
                 <div class="grid grid-cols-2 gap-2">
-                    <a class="text-slate-400 hover:text-white transition-colors" href="index.html">عن الشركة</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="offers.html">أسعار الشحن</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">خدماتنا</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="shipment-trucker.html">تتبع شحنتك</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">الآليات</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="contact.html">تواصل معنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">عن الشركة</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">أسعار الشحن</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">خدماتنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">تتبع شحنتك</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">الآليات</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="contact.html">تواصل معنا</a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-slate-800 py-6 text-center text-slate-500 text-xs">
+        <div class="border-t border-slate-800 py-4 md:py-6 text-center text-slate-500 text-[10px] md:text-xs">
             © 2024 الخطيب لوجستيك. جميع الحقوق محفوظة
         </div>
     </footer>
 
     <!-- Unified Bottom Navigation (Visible < 768px) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/20 flex justify-around items-center pt-1 pb-3 rtl shadow-[0_-4px_12px_rgba(0,0,0,0.05)] rounded-t-2xl">
-        <a href="index.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">home</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-center gap-[10px] items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]" 
+         style="background: linear-gradient(135deg, #d9e0e9 0%, #f4f0e9 100%);">
+        <a href="index.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a href="all-products.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">inventory_2</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
+        <a href="all-products.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">local_shipping</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">الشحن</span>
+        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تتبع</span>
         </a>
-        <a href="request.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">add_box</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        <a href="offers.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">bolt</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">العروض</span>
         </a>
-        <a href="contact.html" class="flex flex-col items-center gap-0.5 group active">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">phone</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        <a href="request.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">production_quantity_limits</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
         </a>
-        <a href="admin.html" class="flex flex-col items-center gap-0.5 group">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all group-hover:scale-110 group-hover:text-primary">dashboard</span>
-            <span class="text-[10px] font-bold text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
+        <a href="contact.html" class="flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        </a>
+        <a href="admin.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الإدارة</span>
         </a>
     </nav>
 
@@ -367,4 +390,8 @@
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+	 <!-- Floating Action Button -->
+    <a href="https://wa.me/9647500773200" target="_blank" class="fixed bottom-32 left-6 w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center z-40 md:bottom-12 md:left-8 active:scale-90 transition-transform hover:bg-green-600 hover:scale-110 max-[480px]:w-12 max-[480px]:h-12 max-[480px]:bottom-24 max-[480px]:left-4">
+        <img src="img/whatsapp.gif" alt="WhatsApp" class="w-8 h-8 max-[480px]:w-8 max-[480px]:h-8">
+    </a>
 </body></html>

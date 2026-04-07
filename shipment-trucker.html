@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css">
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -100,9 +101,12 @@
     <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
-                <a href="index.html" class="flex items-center gap-3 group">
+                <a href="index.html" class="flex items-center gap-3 group border-none">
                     <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-24 h-24 object-contain border-2 border-primary/20 rounded-2xl p-1">
-                    <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                        <span class="text-sm font-bold text-outline mt-1 group-hover:text-secondary transition-colors">شعارنا: دقـــة * ســرعة * أمــان</span>
+                    </div>
                 </a>
                 <div class="flex items-center gap-6 text-base font-bold">
                     <a href="index.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">الرئيسية</a>
@@ -114,36 +118,50 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="relative">
-                    <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl">search</span>
-                    <input type="text" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
-                </div>
+                <form class="relative group" action="all-products.html" method="GET">
+                    <button type="submit" class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10">search</button>
+                    <input type="search" name="q" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
+                </form>
                 <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors text-2xl hover:scale-110">shopping_cart</a>
             </div>
         </div>
     </nav>
 
     <!-- Unified Mobile Header (Visible < 768px) -->
-    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl">
-        <a href="index.html" class="flex items-center gap-2 text-xl font-black text-primary tracking-tighter"><img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">الخطيب لوجستيك</a>
+    <header class="md:hidden  backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl" style="z-index: 50;">
+        <a href="index.html" class="flex items-center gap-2">
+            <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">
+            <div class="flex flex-col">
+                <span class="text-xl font-black text-primary tracking-tighter">الخطيب لوجستيك</span>
+                <span class="text-[10px] max-[480px]:text-[12px] font-bold text-outline mt-0.5 transition-all">شعارنا: دقـــة * ســرعة * أمــان</span>
+            </div>
+        </a>
         <div class="flex items-center gap-3">
-            <button class="material-symbols-outlined text-outline text-2xl">search</button>
-            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
-            <button class="material-symbols-outlined text-outline text-2xl">notifications</button>
+            <button class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors" onclick="const el = document.getElementById('mobileSearch'); el.classList.toggle('opacity-0'); el.classList.toggle('-translate-y-4'); el.classList.toggle('pointer-events-none');">search</button>
+            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors">shopping_cart</a>
         </div>
     </header>
+    <!-- Mobile Search Bar (Animated) -->
+    <div id="mobileSearch" class="md:hidden bg-surface border-b border-outline-variant/20 px-4 fixed w-full top-20 left-0 transition-all duration-300 ease-in-out opacity-0 -translate-y-4 pointer-events-none" style="z-index: 40;">
+        <div class="py-3 max-[480px]:py-2 transition-all">
+            <form action="all-products.html" method="GET" class="relative group w-full">
+                <button type="submit" class="material-symbols-outlined absolute right-4 max-[480px]:right-3 top-1/2 -translate-y-1/2 text-outline text-2xl max-[480px]:text-[20px] group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10 w-fit">search</button>
+                <input type="search" name="q" placeholder="بحث..." class="pr-12 max-[480px]:pr-10 pl-6 max-[480px]:pl-4 py-3 max-[480px]:py-1.5 bg-surface-container-high rounded-full border-none text-base max-[480px]:text-sm focus:ring-2 focus:ring-primary w-full shadow-sm hover:shadow-md transition-all">
+            </form>
+        </div>
+    </div>
 <main class="pt-24 pb-20 px-4 md:px-8 max-w-screen-2xl mx-auto">
 <!-- Search Hero Section -->
-<section class="mb-12">
-<div class="flex flex-col gap-2 mb-8">
-<span class="text-secondary font-headline font-bold text-lg tracking-wider">دقة • سرعة • أمان</span>
-<h1 class="text-4xl md:text-5xl font-black font-headline text-primary tracking-tight">أين شحنتك الآن؟</h1>
-<p class="text-on-surface-variant max-w-xl">أدخل رقم التتبع الخاص بك للحصول على تفاصيل دقيقة حول موقع شحنتك والجدول الزمني المتوقع للوصول.</p>
+<section class="mb-8 md:mb-12">
+<div class="flex flex-col gap-1 md:gap-2 mb-6 md:mb-8">
+<span class="text-secondary font-headline font-bold text-sm md:text-lg tracking-wider">دقة • سرعة • أمان</span>
+<h1 class="text-3xl md:text-5xl max-[480px]:text-2xl font-black font-headline text-primary tracking-tight">أين شحنتك الآن؟</h1>
+<p class="text-on-surface-variant text-sm md:text-base max-w-xl max-[480px]:text-[13px]">أدخل رقم التتبع الخاص بك للحصول على تفاصيل دقيقة حول موقع شحنتك والجدول الزمني المتوقع للوصول.</p>
 </div>
-<div class="relative max-w-2xl bg-surface-container-lowest p-2 rounded-full shadow-lg flex items-center gap-2 group transition-all duration-300 focus-within:ring-4 focus-within:ring-primary/5">
-<span class="material-symbols-outlined text-outline pr-4">search</span>
-<input class="w-full bg-transparent border-none focus:ring-0 text-lg font-headline font-semibold placeholder:text-outline-variant" placeholder="أدخل رقم التتبع (مثال: AKL-987234)" type="text"/>
-<button class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-on-secondary-container transition-all active:scale-95 whitespace-nowrap">
+<div class="relative max-w-2xl bg-surface-container-lowest p-1.5 md:p-2 rounded-full shadow-lg flex items-center gap-2 group transition-all duration-300 focus-within:ring-4 focus-within:ring-primary/5">
+<span class="material-symbols-outlined text-outline pr-3 md:pr-4 text-xl md:text-2xl">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-base md:text-lg font-headline font-semibold placeholder:text-outline-variant" placeholder="أدخل رقم التتبع..." type="text"/>
+<button class="bg-secondary text-white px-5 md:px-8 py-2 md:py-3 rounded-full font-bold text-sm md:text-base hover:bg-on-secondary-container transition-all active:scale-95 whitespace-nowrap">
                     تتبع المسار
                 </button>
 </div>
@@ -179,7 +197,7 @@
 </div>
 <!-- Map Mockup -->
 <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm aspect-square relative group">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" alt="Modern satellite map showing maritime and air shipping routes" data-location="Baghdad" style="background-image: url('img/1.png')">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Modern satellite map showing maritime and air shipping routes between China and the Middle East with glowing orange paths" data-location="Baghdad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZapLY3QS1SY8NZVEXLknak24t7PKo7Nbc6RZ8SS2mO8jTFYeFK-cUZOZbEMp3if4SihOnnx54WAj0VRfsl-w6PVVaRFWWeypfVmFxA6mJ6guHpsT1cNwxI0yZ5EuQDID3AUBLNEPB5ug2TJHCRRWt77gP2m5vqeVjSlbjh5SKlvq_ezoXkQ4kjOw5MhhLypWJrUFFh1C7Dp2lvIabwtRY2CE6NKthpep0xf3B8leU5MU1XrP7chq1hk1R4wTbOzZDD0DR8NG4jw')">
 </div>
 <div class="absolute inset-0 bg-primary/10"></div>
 <!-- Map Overlays -->
@@ -196,11 +214,11 @@
 </div>
 </div>
 <!-- Right Column: Detailed Timeline -->
-<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-<div class="flex justify-between items-center mb-10">
-<h2 class="text-2xl font-black font-headline text-primary">مسار الرحلة اللوجستية</h2>
-<div class="flex items-center gap-2 text-sm font-bold text-on-surface-variant bg-surface-container-low px-4 py-1 rounded-full">
-<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-5 md:p-8 shadow-sm">
+<div class="flex justify-between items-center mb-6 md:mb-10">
+<h2 class="text-xl md:text-2xl font-black font-headline text-primary">مسار الرحلة اللوجستية</h2>
+<div class="flex items-center gap-2 text-[10px] md:text-sm font-bold text-on-surface-variant bg-surface-container-low px-3 md:px-4 py-1 rounded-full">
+<span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-secondary"></span>
                         قيد التنفيذ
                     </div>
 </div>
@@ -282,116 +300,120 @@
 </div>
 </main>
 <!-- Support Section -->
-<section class="bg-surface-container-low py-16 px-8">
-<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center gap-12">
-<div class="flex-1 space-y-4">
-<h2 class="text-3xl font-black text-primary font-headline">هل تواجه مشكلة في التتبع؟</h2>
-<p class="text-on-surface-variant text-lg">فريق الدعم الفني متواجد على مدار الساعة لمساعدتك في الحصول على أدق المعلومات حول شحناتك.</p>
-<div class="flex gap-4 pt-4">
-<button class="bg-primary text-white px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 hover:scale-105 transition-transform">
-<span class="material-symbols-outlined">support_agent</span>
+<section class="bg-surface-container-low py-10 md:py-16 px-4 md:px-8">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+<div class="flex-1 space-y-3 md:space-y-4 text-center md:text-right">
+<h2 class="text-2xl md:text-3xl font-black text-primary font-headline">هل تواجه مشكلة في التتبع؟</h2>
+<p class="text-on-surface-variant text-base md:text-lg">فريق الدعم الفني متواجد على مدار الساعة لمساعدتك في الحصول على أدق المعلومات حول شحناتك.</p>
+<div class="flex flex-wrap justify-center md:justify-start gap-3 pt-2 md:pt-4">
+<button class="bg-primary text-white px-6 md:px-8 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base shadow-lg flex items-center gap-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-xl">support_agent</span>
                         تحدث معنا الآن
                     </button>
-<button class="border-2 border-primary text-primary px-8 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
+<button class="border-2 border-primary text-primary px-6 md:px-8 py-2.5 md:py-3 rounded-full font-bold text-sm md:text-base hover:bg-primary hover:text-white transition-all">
                         مركز المساعدة
                     </button>
 </div>
 </div>
-<div class="flex-1 grid grid-cols-2 gap-4 w-full">
-<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm text-center">
-<span class="material-symbols-outlined text-4xl text-secondary mb-2">call</span>
-<h4 class="font-bold text-primary">اتصل بنا</h4>
-<p class="text-xs text-outline">دعم 24/7</p>
+<div class="flex-1 grid grid-cols-2 gap-3 md:gap-4 w-full">
+<div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl md:text-4xl text-secondary mb-1 md:mb-2">call</span>
+<h4 class="font-bold text-primary text-sm md:text-base">اتصل بنا</h4>
+<p class="text-[10px] md:text-xs text-outline">دعم 24/7</p>
 </div>
-<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm text-center">
-<span class="material-symbols-outlined text-4xl text-secondary mb-2">mail</span>
-<h4 class="font-bold text-primary">بريدنا</h4>
-<p class="text-xs text-outline">رد سريع</p>
+<div class="bg-surface-container-lowest p-4 md:p-6 rounded-xl shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl md:text-4xl text-secondary mb-1 md:mb-2">mail</span>
+<h4 class="font-bold text-primary text-sm md:text-base">بريدنا</h4>
+<p class="text-[10px] md:text-xs text-outline">رد سريع</p>
 </div>
 </div>
 </div>
 </section>
     <!-- Footer -->
-    <footer class="bg-slate-900 dark:bg-black w-full mt-auto">
-        <div class="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 rtl">
+    <footer class="bg-slate-900 dark:bg-black w-full mt-auto pb-20 md:pb-12">
+        <div class="w-full px-5 py-8 md:px-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 rtl">
             <div>
-                <div class="text-xl font-bold text-white mb-4">الخطيب لوجستيك</div>
-                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                <div class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">الخطيب لوجستيك</div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-4 md:mb-6">
                     الشركة الرائدة في تقديم الحلول اللوجستية المتكاملة، نربط الأسواق العالمية بقلب المنطقة العربية عبر شبكة نقل احترافية.
                 </p>
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">social_leaderboard</span>
+                <div class="flex gap-3 md:gap-4">
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">social_leaderboard</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">language</span>
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">language</span>
                     </a>
                 </div>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">اتصل بنا</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">اتصل بنا</h4>
+                <ul class="space-y-3 md:space-y-4">
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+9647500773200</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+963936042000</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">mail</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">mail</span>
                         <span>alkhatiblogistics@gmail.com</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">alternate_email</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">alternate_email</span>
                         <span>alkhatib2000</span>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">روابط سريعة</h4>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">روابط سريعة</h4>
                 <div class="grid grid-cols-2 gap-2">
-                    <a class="text-slate-400 hover:text-white transition-colors" href="index.html">عن الشركة</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="offers.html">أسعار الشحن</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">خدماتنا</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="shipment-trucker.html">تتبع شحنتك</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">الآليات</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="contact.html">تواصل معنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">عن الشركة</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">أسعار الشحن</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">خدماتنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">تتبع شحنتك</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">الآليات</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="contact.html">تواصل معنا</a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-slate-800 py-6 text-center text-slate-500 text-xs">
+        <div class="border-t border-slate-800 py-4 md:py-6 text-center text-slate-500 text-[10px] md:text-xs">
             © 2024 الخطيب لوجستيك. جميع الحقوق محفوظة
         </div>
     </footer>
 
     <!-- Unified Bottom Navigation (Visible < 768px) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-around items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]"
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-center gap-[10px] items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]" 
          style="background: linear-gradient(135deg, #d9e0e9 0%, #f4f0e9 100%);">
-        <a href="index.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
+        <a href="index.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a href="all-products.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
+        <a href="all-products.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a href="shipment-trucker.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الشحن</span>
+        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تتبع</span>
         </a>
-        <a href="request.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">add_box</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        <a href="offers.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">bolt</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">العروض</span>
         </a>
-        <a href="contact.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        <a href="request.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">production_quantity_limits</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
         </a>
-        <a href="admin.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
+        <a href="contact.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        </a>
+        <a href="admin.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الإدارة</span>
         </a>
     </nav>
 
@@ -400,4 +422,8 @@
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+	 <!-- Floating Action Button -->
+    <a href="https://wa.me/9647500773200" target="_blank" class="fixed bottom-32 left-6 w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center z-40 md:bottom-12 md:left-8 active:scale-90 transition-transform hover:bg-green-600 hover:scale-110 max-[480px]:w-12 max-[480px]:h-12 max-[480px]:bottom-24 max-[480px]:left-4">
+        <img src="img/whatsapp.gif" alt="WhatsApp" class="w-8 h-8 max-[480px]:w-8 max-[480px]:h-8">
+    </a>
 </body></html>

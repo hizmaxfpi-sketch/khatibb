@@ -3,11 +3,12 @@
 <html dir="rtl" lang="ar"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>طلب خدمة | الخطيب لوجستيك</title>
+<title>إتمام الطلب | الخطيب لوجستيك</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css">
 <script id="tailwind-config">
         tailwind.config = {
           darkMode: "class",
@@ -88,9 +89,12 @@
     <nav class="hidden md:block bg-surface/80 backdrop-blur-md sticky top-0 z-50 border-b border-outline-variant/30">
         <div class="max-w-7xl mx-auto px-6 h-28 flex justify-between items-center rtl">
             <div class="flex items-center gap-10">
-                <a href="index.html" class="flex items-center gap-3 group">
+                <a href="index.html" class="flex items-center gap-3 group border-none">
                     <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-24 h-24 object-contain border-2 border-primary/20 rounded-2xl p-1">
-                    <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                    <div class="flex flex-col">
+                        <span class="text-2xl font-black text-primary tracking-tighter group-hover:text-secondary transition-colors">الخطيب لوجستيك</span>
+                        <span class="text-sm font-bold text-outline mt-1 group-hover:text-secondary transition-colors">شعارنا: دقـــة * ســرعة * أمــان</span>
+                    </div>
                 </a>
                 <div class="flex items-center gap-6 text-base font-bold">
                     <a href="index.html" class="text-on-surface hover:text-secondary hover:bg-primary/10 px-2 py-1 rounded-lg transition-all">الرئيسية</a>
@@ -102,128 +106,142 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="relative">
-                    <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl">search</span>
-                    <input type="text" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
-                </div>
+                <form class="relative group" action="all-products.html" method="GET">
+                    <button type="submit" class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline text-2xl group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10">search</button>
+                    <input type="search" name="q" placeholder="بحث..." class="pr-12 pl-6 py-3 bg-surface-container-high rounded-full border-none text-base focus:ring-2 focus:ring-primary w-56 transition-all focus:w-72 shadow-sm hover:shadow-md">
+                </form>
                 <a href="cart.html" class="material-symbols-outlined text-outline hover:text-primary transition-colors text-2xl hover:scale-110">shopping_cart</a>
             </div>
         </div>
     </nav>
 
     <!-- Unified Mobile Header (Visible < 768px) -->
-    <header class="md:hidden bg-surface/90 backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl">
-        <a href="index.html" class="flex items-center gap-2 text-xl font-black text-primary tracking-tighter"><img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">الخطيب لوجستيك</a>
+    <header class="md:hidden  backdrop-blur-lg sticky top-0 z-50 px-4 h-20 flex justify-between items-center border-b border-outline-variant/20 rtl" style="z-index: 50;">
+        <a href="index.html" class="flex items-center gap-2">
+            <img src="img/logo.png" alt="الخطيب لوجستيك" class="w-16 h-16 object-contain border-2 border-primary/20 rounded-xl p-0.5">
+            <div class="flex flex-col">
+                <span class="text-xl font-black text-primary tracking-tighter">الخطيب لوجستيك</span>
+                <span class="text-[10px] max-[480px]:text-[12px] font-bold text-outline mt-0.5 transition-all">شعارنا: دقـــة * ســرعة * أمــان</span>
+            </div>
+        </a>
         <div class="flex items-center gap-3">
-            <button class="material-symbols-outlined text-outline text-2xl">search</button>
-            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl">shopping_cart</a>
-            <button class="material-symbols-outlined text-outline text-2xl">notifications</button>
+            <button class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors" onclick="const el = document.getElementById('mobileSearch'); el.classList.toggle('opacity-0'); el.classList.toggle('-translate-y-4'); el.classList.toggle('pointer-events-none');">search</button>
+            <a href="cart.html" class="material-symbols-outlined text-outline text-2xl hover:text-primary transition-colors">shopping_cart</a>
         </div>
     </header>
-<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto">
-<h1 class="text-4xl font-extrabold text-primary mb-8 headline-font tracking-tight">إتمام الطلب</h1>
+    <!-- Mobile Search Bar (Animated) -->
+    <div id="mobileSearch" class="md:hidden bg-surface border-b border-outline-variant/20 px-4 fixed w-full top-20 left-0 transition-all duration-300 ease-in-out opacity-0 -translate-y-4 pointer-events-none" style="z-index: 40;">
+        <div class="py-3 max-[480px]:py-2 transition-all">
+            <form action="all-products.html" method="GET" class="relative group w-full">
+                <button type="submit" class="material-symbols-outlined absolute right-4 max-[480px]:right-3 top-1/2 -translate-y-1/2 text-outline text-2xl max-[480px]:text-[20px] group-hover:text-primary transition-colors bg-transparent border-none cursor-pointer z-10 w-fit">search</button>
+                <input type="search" name="q" placeholder="بحث..." class="pr-12 max-[480px]:pr-10 pl-6 max-[480px]:pl-4 py-3 max-[480px]:py-1.5 bg-surface-container-high rounded-full border-none text-base max-[480px]:text-sm focus:ring-2 focus:ring-primary w-full shadow-sm hover:shadow-md transition-all">
+            </form>
+        </div>
+    </div>
+<main class="pt-20 md:pt-24 pb-12 px-4 md:px-6 max-w-7xl mx-auto">
+<h1 class="text-2xl md:text-4xl font-extrabold text-primary mb-6 md:mb-8 headline-font tracking-tight">إتمام الطلب</h1>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 <!-- Left Side: Form Details (Shipping/Payment) -->
 <div class="lg:col-span-7 space-y-8">
 <!-- Customer Info Section -->
-<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-r-4 border-primary">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary text-3xl">account_circle</span>
-<h2 class="text-xl font-bold text-primary headline-font">معلومات العميل</h2>
+<section class="bg-surface-container-lowest p-5 md:p-8 rounded-xl shadow-sm border-r-4 border-primary">
+<div class="flex items-center gap-3 mb-4 md:mb-6">
+<span class="material-symbols-outlined text-primary text-2xl md:text-3xl">account_circle</span>
+<h2 class="text-lg md:text-xl font-bold text-primary headline-font">معلومات العميل</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">الاسم الكامل</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all" placeholder="أدخل اسمك بالكامل" type="text"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">الاسم الكامل</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base" placeholder="أدخل اسمك بالكامل" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">رقم الهاتف</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all text-left" dir="ltr" placeholder="+966 5x xxx xxxx" type="tel"/>
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">رقم الهاتف</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-left text-sm md:text-base" dir="ltr" placeholder="+966 5x xxx xxxx" type="tel"/>
 </div>
-<div class="md:col-span-2 space-y-2">
-<label class="text-sm font-semibold text-outline">البريد الإلكتروني</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all" placeholder="example@domain.com" type="email"/>
+<div class="md:col-span-2 space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">البريد الإلكتروني</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base" placeholder="example@domain.com" type="email"/>
 </div>
 </div>
 </section>
 <!-- Shipping Details Section -->
-<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-r-4 border-primary">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
-<h2 class="text-xl font-bold text-primary headline-font">معلومات الشحن</h2>
+<section class="bg-surface-container-lowest p-5 md:p-8 rounded-xl shadow-sm border-r-4 border-primary">
+<div class="flex items-center gap-3 mb-4 md:mb-6">
+<span class="material-symbols-outlined text-primary text-2xl md:text-3xl">local_shipping</span>
+<h2 class="text-lg md:text-xl font-bold text-primary headline-font">معلومات الشحن</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="md:col-span-2 space-y-2">
-<label class="text-sm font-semibold text-outline">العنوان التفصيلي</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all" placeholder="اسم الشارع، رقم المبنى، رقم الشقة" type="text"/>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+<div class="md:col-span-2 space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">العنوان التفصيلي</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base" placeholder="اسم الشارع، رقم المبنى، رقم الشقة" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">المدينة</label>
-<select class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all">
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">المدينة</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base">
 <option>الرياض</option>
 <option>جدة</option>
 <option>الدمام</option>
 <option>دبي</option>
 </select>
 </div>
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">الرمز البريدي</label>
-<input class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all" placeholder="12345" type="text"/>
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">الرمز البريدي</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base" placeholder="12345" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">وقت التوصيل المفضل</label>
-<select class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all">
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">وقت التوصيل المفضل</label>
+<select class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base">
 <option>صباحاً (9:00 - 13:00)</option>
 <option>مساءً (17:00 - 22:00)</option>
 <option>طوال اليوم</option>
 </select>
 </div>
-<div class="md:col-span-2 space-y-2">
-<label class="text-sm font-semibold text-outline">ملاحظات التسليم</label>
-<textarea class="w-full bg-surface-container-high border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all" placeholder="أية تعليمات خاصة للسائق..." rows="3"></textarea>
+<div class="md:col-span-2 space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">ملاحظات التسليم</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-sm md:text-base" placeholder="أية تعليمات خاصة للسائق..." rows="3"></textarea>
 </div>
 </div>
 </section>
 <!-- Payment Methods Section -->
-<section class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border-r-4 border-primary">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary text-3xl">payments</span>
-<h2 class="text-xl font-bold text-primary headline-font">معلومات الدفع</h2>
+<section class="bg-surface-container-lowest p-5 md:p-8 rounded-xl shadow-sm border-r-4 border-primary">
+<div class="flex items-center gap-3 mb-4 md:mb-6">
+<span class="material-symbols-outlined text-primary text-2xl md:text-3xl">payments</span>
+<h2 class="text-lg md:text-xl font-bold text-primary headline-font">معلومات الدفع</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-<label class="relative flex flex-col items-center justify-center p-4 border-2 border-primary bg-primary-fixed cursor-pointer rounded-xl transition-all">
+<div class="grid grid-cols-3 gap-3 mb-6 md:mb-8">
+<label class="relative flex flex-col items-center justify-center p-3 md:p-4 border-2 border-primary bg-primary-fixed cursor-pointer rounded-xl transition-all">
 <input checked="" class="absolute opacity-0" name="payment" type="radio"/>
-<span class="material-symbols-outlined text-primary mb-2">credit_card</span>
-<span class="text-sm font-bold text-primary">بطاقة ائتمان</span>
+<span class="material-symbols-outlined text-primary mb-1 md:mb-2 text-xl md:text-2xl">credit_card</span>
+<span class="text-[10px] md:text-sm font-bold text-primary text-center">بطاقة ائتمان</span>
 </label>
-<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant hover:bg-surface-container-high cursor-pointer rounded-xl transition-all">
+<label class="relative flex flex-col items-center justify-center p-3 md:p-4 border border-outline-variant hover:bg-surface-container-high cursor-pointer rounded-xl transition-all">
 <input class="absolute opacity-0" name="payment" type="radio"/>
-<span class="material-symbols-outlined text-outline mb-2">payments</span>
-<span class="text-sm font-semibold text-outline">الدفع عند الاستلام</span>
+<span class="material-symbols-outlined text-outline mb-1 md:mb-2 text-xl md:text-2xl">payments</span>
+<span class="text-[10px] md:text-sm font-semibold text-outline text-center">الدفع عند الاستلام</span>
 </label>
-<label class="relative flex flex-col items-center justify-center p-4 border border-outline-variant hover:bg-surface-container-high cursor-pointer rounded-xl transition-all">
+<label class="relative flex flex-col items-center justify-center p-3 md:p-4 border border-outline-variant hover:bg-surface-container-high cursor-pointer rounded-xl transition-all">
 <input class="absolute opacity-0" name="payment" type="radio"/>
-<span class="material-symbols-outlined text-outline mb-2">account_balance</span>
-<span class="text-sm font-semibold text-outline">تحويل بنكي</span>
+<span class="material-symbols-outlined text-outline mb-1 md:mb-2 text-xl md:text-2xl">account_balance</span>
+<span class="text-[10px] md:text-sm font-semibold text-outline text-center">تحويل بنكي</span>
 </label>
 </div>
 <!-- Conditional Card Input -->
-<div class="space-y-4 p-4 bg-surface-container-low rounded-lg">
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">رقم البطاقة</label>
+<div class="space-y-3 p-3 md:p-4 bg-surface-container-low rounded-lg">
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">رقم البطاقة</label>
 <div class="relative">
-<input class="w-full bg-white border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all pl-12 text-left" dir="ltr" placeholder="0000 0000 0000 0000" type="text"/>
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full bg-white border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all pl-10 md:pl-12 text-left text-sm md:text-base" dir="ltr" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-xl">lock</span>
 </div>
 </div>
-<div class="grid grid-cols-2 gap-4">
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">تاريخ الانتهاء</label>
-<input class="w-full bg-white border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all text-center" dir="ltr" placeholder="MM/YY" type="text"/>
+<div class="grid grid-cols-2 gap-3 md:gap-4">
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">تاريخ الانتهاء</label>
+<input class="w-full bg-white border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-center text-sm md:text-base" dir="ltr" placeholder="MM/YY" type="text"/>
 </div>
-<div class="space-y-2">
-<label class="text-sm font-semibold text-outline">رمز الأمان CVV</label>
-<input class="w-full bg-white border-none rounded-lg p-3 focus:ring-2 focus:ring-primary transition-all text-center" dir="ltr" placeholder="***" type="text"/>
+<div class="space-y-1.5 md:space-y-2">
+<label class="text-xs md:text-sm font-semibold text-outline">رمز الأمان CVV</label>
+<input class="w-full bg-white border-none rounded-lg p-2.5 md:p-3 focus:ring-2 focus:ring-primary transition-all text-center text-sm md:text-base" dir="ltr" placeholder="***" type="text"/>
 </div>
 </div>
 </div>
@@ -231,74 +249,74 @@
 </div>
 <!-- Right Side: Order Summary -->
 <div class="lg:col-span-5 sticky top-24">
-<section class="bg-tertiary-container text-white p-8 rounded-xl shadow-xl overflow-hidden relative">
+<section class="bg-tertiary-container text-white p-5 md:p-8 rounded-xl shadow-xl overflow-hidden relative">
 <!-- Background Decoration -->
 <div class="absolute top-0 left-0 w-32 h-32 bg-primary/20 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"></div>
 <div class="relative z-10">
-<h2 class="text-2xl font-bold mb-8 headline-font border-b border-white/10 pb-4">ملخص الطلب</h2>
-<div class="space-y-6 mb-8 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
+<h2 class="text-xl md:text-2xl font-bold mb-6 md:mb-8 headline-font border-b border-white/10 pb-4">ملخص الطلب</h2>
+<div class="space-y-3 mb-6 md:mb-8 max-h-[300px] overflow-y-auto custom-scrollbar pr-2">
 <!-- Product Item -->
-<div class="flex gap-4 items-center">
-<div class="w-16 h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" alt="heavy industrial wooden shipping crate" src="img/1.png"/>
+<div class="flex gap-3 md:gap-4 items-center">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="heavy industrial wooden shipping crate with steel reinforcements in a professional logistics warehouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCB8nEdRYtlON0fSBfm245yeMOgZbvODZX7JMCkCoKpc9PdE9dKPKdIBFhqyxuDWexh2o2RQa5iIRqTNK8Wn-4ziU1KK75HZps2iggiBjzfCpGnZ_7W_KvORBNrAjozF20YSaod3ElyZ3VGzKYYzalsJHXVPDtKCdETv6Hnun3UmhX6HgNWOGCvrE0KqBvC14va3lQ4tFsi20S6cFYPC1J1AO9ADOdHMAQrjGcVO2bd_Zj6NNvql2rYXnQPIjPAlW0osBgo6TjmQ"/>
 </div>
 <div class="flex-grow">
-<h3 class="font-bold text-sm">خدمة شحن دولي - وزن 50كجم</h3>
-<p class="text-xs text-white/60">الكمية: 1</p>
+<h3 class="font-bold text-xs md:text-sm">خدمة شحن دولي - وزن 50كجم</h3>
+<p class="text-[10px] md:text-xs text-white/60">الكمية: 1</p>
 </div>
 <div class="text-right">
-<span class="font-bold headline-font">1,200 ريال</span>
+<span class="font-bold headline-font text-xs md:text-base text-secondary-container">1,200 ريال</span>
 </div>
 </div>
 <!-- Product Item -->
-<div class="flex gap-4 items-center">
-<div class="w-16 h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
-<img class="w-full h-full object-cover" alt="industrial shipping supplies" src="img/3.png"/>
+<div class="flex gap-3 md:gap-4 items-center">
+<div class="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="industrial shipping supplies including cardboard boxes and bubble wrap on a clean concrete floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABCODalP6dzWHvdnsasHKtJ0LJ8HuNlLg1YxUzr4O4EaxXeUfb_AXDHUPBlk_bMMh8fGeF3HxymXRuR7-WvkGRTt6krS4wEvePZMmWAFWhj4tYAMc9Mi0VJPPXQad7BAzrRz9AqO5UYhkgxqD0RzsQd_WgwHTcV6LYqcbqyeOrNlzZFb4d8ZJMCMjYmTj6erAZwBr-filzY4XWAAsjueLMweB4l7RmNMhOVq_E8syhi6k5a-TqfIWAEJmk0tv3Klg3lCD3t2t5cg"/>
 </div>
 <div class="flex-grow">
-<h3 class="font-bold text-sm">باقة التغليف الفاخر (المؤمن)</h3>
-<p class="text-xs text-white/60">الكمية: 2</p>
+<h3 class="font-bold text-xs md:text-sm">باقة التغليف الفاخر (المؤمن)</h3>
+<p class="text-[10px] md:text-xs text-white/60">الكمية: 2</p>
 </div>
 <div class="text-right">
-<span class="font-bold headline-font">450 ريال</span>
+<span class="font-bold headline-font text-xs md:text-base text-secondary-container">450 ريال</span>
 </div>
 </div>
 </div>
 <!-- Promo Code -->
-<div class="flex gap-2 mb-8">
-<input class="flex-grow bg-white/5 border border-white/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-secondary-container transition-all" placeholder="كود الخصم" type="text"/>
-<button class="bg-white/10 hover:bg-white/20 px-6 rounded-lg text-sm font-bold transition-all">تفعيل</button>
+<div class="flex gap-2 mb-6 md:mb-8">
+<input class="flex-grow bg-white/5 border border-white/10 rounded-lg p-2.5 md:p-3 text-xs md:text-sm focus:ring-1 focus:ring-secondary-container transition-all" placeholder="كود الخصم" type="text"/>
+<button class="bg-white/10 hover:bg-white/20 px-4 md:px-6 rounded-lg text-xs md:text-sm font-bold transition-all">تفعيل</button>
 </div>
 <!-- Calculations -->
-<div class="space-y-4 border-t border-white/10 pt-6 mb-8">
-<div class="flex justify-between text-white/70">
+<div class="space-y-3 md:space-y-4 border-t border-white/10 pt-4 md:pt-6 mb-6 md:mb-8">
+<div class="flex justify-between text-white/70 text-xs md:text-sm">
 <span>المجموع الفرعي</span>
 <span class="headline-font">1,650 ريال</span>
 </div>
-<div class="flex justify-between text-white/70">
+<div class="flex justify-between text-white/70 text-xs md:text-sm">
 <span>رسوم الشحن والتوصيل</span>
 <span class="headline-font text-secondary-container">مجاني</span>
 </div>
-<div class="flex justify-between text-white/70">
+<div class="flex justify-between text-white/70 text-xs md:text-sm">
 <span>ضريبة القيمة المضافة (15%)</span>
 <span class="headline-font">247.50 ريال</span>
 </div>
-<div class="flex justify-between text-2xl font-black pt-4">
+<div class="flex justify-between text-lg md:text-2xl font-black pt-3 md:pt-4">
 <span class="headline-font">الإجمالي النهائي</span>
 <span class="headline-font text-secondary-container">1,897.50 ريال</span>
 </div>
 </div>
 <!-- Confirmation Logic -->
-<div class="space-y-6">
-<label class="flex items-start gap-3 cursor-pointer group">
+<div class="space-y-4 md:space-y-6">
+<label class="flex items-start gap-2 md:gap-3 cursor-pointer group">
 <input class="mt-1 rounded text-secondary-container bg-white/10 border-white/20 focus:ring-0" type="checkbox"/>
-<span class="text-sm text-white/60 group-hover:text-white transition-colors">أوافق على <a class="underline decoration-secondary-container underline-offset-4" href="#">الشروط والأحكام</a> وسياسة الخصوصية الخاصة بالخطيب لوجستيك.</span>
+<span class="text-[10px] md:text-sm text-white/60 group-hover:text-white transition-colors">أوافق على <a class="underline decoration-secondary-container underline-offset-4" href="#">الشروط والأحكام</a> وسياسة الخصوصية الخاصة بالخطيب لوجستيك.</span>
 </label>
-<button class="w-full bg-secondary-container hover:bg-[#ffb333] text-on-secondary-container font-black py-4 rounded-full flex items-center justify-center gap-3 transition-all transform active:scale-95 shadow-lg headline-font text-lg">
+<button class="w-full bg-secondary-container hover:bg-[#ffb333] text-on-secondary-container font-black py-3 md:py-4 rounded-full flex items-center justify-center gap-2 md:gap-3 transition-all transform active:scale-95 shadow-lg headline-font text-base md:text-lg">
                                 تأكيد الطلب
-                                <span class="material-symbols-outlined">verified</span>
+                                <span class="material-symbols-outlined text-xl md:text-2xl">verified</span>
 </button>
-<a class="w-full block text-center text-white/40 hover:text-white text-sm font-semibold transition-all" href="#">
+<a class="w-full block text-center text-white/40 hover:text-white text-[10px] md:text-sm font-semibold transition-all" href="#">
                                 هل لديك استفسار؟ اتصل بخبراء الخدمات اللوجستية
                             </a>
 </div>
@@ -314,86 +332,90 @@
 </div>
 </main>
     <!-- Footer -->
-    <footer class="bg-slate-900 dark:bg-black w-full mt-auto">
-        <div class="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 rtl">
+    <footer class="bg-slate-900 dark:bg-black w-full mt-auto pb-20 md:pb-12">
+        <div class="w-full px-5 py-8 md:px-8 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 rtl">
             <div>
-                <div class="text-xl font-bold text-white mb-4">الخطيب لوجستيك</div>
-                <p class="text-sm text-slate-300 leading-relaxed mb-6">
+                <div class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">الخطيب لوجستيك</div>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed mb-4 md:mb-6">
                     الشركة الرائدة في تقديم الحلول اللوجستية المتكاملة، نربط الأسواق العالمية بقلب المنطقة العربية عبر شبكة نقل احترافية.
                 </p>
-                <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">social_leaderboard</span>
+                <div class="flex gap-3 md:gap-4">
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">social_leaderboard</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
-                        <span class="material-symbols-outlined text-white text-sm">language</span>
+                    <a class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-secondary-container transition-colors" href="#">
+                        <span class="material-symbols-outlined text-white text-xs md:text-sm">language</span>
                     </a>
                 </div>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">اتصل بنا</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">اتصل بنا</h4>
+                <ul class="space-y-3 md:space-y-4">
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+9647500773200</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">call</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">call</span>
                         <span dir="ltr">+963936042000</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">mail</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">mail</span>
                         <span>alkhatiblogistics@gmail.com</span>
                     </li>
-                    <li class="flex items-center gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px]">
-                        <span class="material-symbols-outlined text-amber-500">alternate_email</span>
+                    <li class="flex items-center gap-2 md:gap-3 text-slate-400 hover:text-white transition-transform hover:translate-x-[-4px] text-xs md:text-sm">
+                        <span class="material-symbols-outlined text-amber-500 text-sm md:text-base">alternate_email</span>
                         <span>alkhatib2000</span>
                     </li>
                 </ul>
             </div>
             <div>
-                <h4 class="text-amber-500 font-bold mb-6">روابط سريعة</h4>
+                <h4 class="text-amber-500 font-bold mb-4 md:mb-6 text-sm md:text-base">روابط سريعة</h4>
                 <div class="grid grid-cols-2 gap-2">
-                    <a class="text-slate-400 hover:text-white transition-colors" href="index.html">عن الشركة</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="offers.html">أسعار الشحن</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">خدماتنا</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="shipment-trucker.html">تتبع شحنتك</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="all-products.html">الآليات</a>
-                    <a class="text-slate-400 hover:text-white transition-colors" href="contact.html">تواصل معنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">عن الشركة</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">أسعار الشحن</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">خدماتنا</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">تتبع شحنتك</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="#">الآليات</a>
+                    <a class="text-slate-400 hover:text-white transition-colors text-xs md:text-sm" href="contact.html">تواصل معنا</a>
                 </div>
             </div>
         </div>
-        <div class="border-t border-slate-800 py-6 text-center text-slate-500 text-xs">
+        <div class="border-t border-slate-800 py-4 md:py-6 text-center text-slate-500 text-[10px] md:text-xs">
             © 2024 الخطيب لوجستيك. جميع الحقوق محفوظة
         </div>
     </footer>
 
     <!-- Unified Bottom Navigation (Visible < 768px) -->
-    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-around items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]"
+    <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 backdrop-blur-xl border-t border-outline/40 flex justify-center gap-[10px] items-center pt-1 pb-1.5 rtl shadow-[0_-10px_35px_rgba(0,0,0,0.12)] rounded-t-[2.5rem]" 
          style="background: linear-gradient(135deg, #d9e0e9 0%, #f4f0e9 100%);">
-        <a href="index.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
+        <a href="index.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">home</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الرئيسية</span>
         </a>
-        <a href="all-products.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
+        <a href="all-products.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">inventory_2</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">المنتجات</span>
         </a>
-        <a href="shipment-trucker.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">الشحن</span>
+        <a href="shipment-trucker.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">local_shipping</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تتبع</span>
         </a>
-        <a href="request.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">add_box</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">طلب</span>
+        <a href="offers.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">bolt</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">العروض</span>
         </a>
-        <a href="contact.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        <a href="request.html" class="flex flex-col items-center gap-0 mb-1 group active transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">production_quantity_limits</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">طلب</span>
         </a>
-        <a href="admin.html" class="mobile-nav-item flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-3 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
-            <span class="material-symbols-outlined text-2xl text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
-            <span class="text-[10px] font-black text-outline group-[.active]:text-primary transition-colors">لوحة التحكم</span>
+        <a href="contact.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">phone</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">تواصل</span>
+        </a>
+        <a href="admin.html" class="flex flex-col items-center gap-0 mb-1 group transition-all duration-300 px-1.5 py-1 rounded-2xl group-[.active]:bg-white/40 group-[.active]:shadow-sm group-[.active]:scale-105">
+            <span class="material-symbols-outlined text-[24px] max-[480px]:text-[22px] text-outline group-[.active]:text-primary group-[.active]:font-fill transition-all">dashboard</span>
+            <span class="text-[10px] mt-0.5 font-bold text-outline group-[.active]:text-primary transition-colors">الإدارة</span>
         </a>
     </nav>
 
@@ -402,4 +424,8 @@
             font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+	 <!-- Floating Action Button -->
+    <a href="https://wa.me/9647500773200" target="_blank" class="fixed bottom-32 left-6 w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl flex items-center justify-center z-40 md:bottom-12 md:left-8 active:scale-90 transition-transform hover:bg-green-600 hover:scale-110 max-[480px]:w-12 max-[480px]:h-12 max-[480px]:bottom-24 max-[480px]:left-4">
+        <img src="img/whatsapp.gif" alt="WhatsApp" class="w-8 h-8 max-[480px]:w-8 max-[480px]:h-8">
+    </a>
 </body></html>
